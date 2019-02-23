@@ -1,0 +1,13 @@
+.Slider input{
+    position: absolute;
+    top:120px;
+}
+.Slider {
+    position: relative;
+
+}
+
+.Slider img{
+    
+    width:100%;
+}

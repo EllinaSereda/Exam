@@ -1,0 +1,10 @@
+.BrandDesk {
+    border:1px solid black;
+    text-align:center;
+}
+.BrandDesk img {
+    width:130px;
+    
+    margin:10px;
+    
+}

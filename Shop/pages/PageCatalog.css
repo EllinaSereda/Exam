@@ -1,0 +1,16 @@
+.PageCatalog img{
+    width:150px;
+}
+.PageCatalog .Product{
+    border:1px solid black;
+    width:200px;
+    height:300px;
+    padding:15px;
+    text-align: center;
+    float:left;
+}
+.PageCatalog:after{
+    clear:both;
+    display: block;
+    content:"";
+}

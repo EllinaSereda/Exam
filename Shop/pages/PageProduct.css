@@ -1,0 +1,15 @@
+.PageProduct img{
+    width:70px;
+}
+.PageProduct .big{
+    width:400px;
+}
+.PageProduct .Product{
+    padding:15px;
+    text-align: center;
+}
+.PageProduct:after{
+    clear:both;
+    display: block;
+    content:"";
+}

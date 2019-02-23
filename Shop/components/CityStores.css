@@ -1,0 +1,9 @@
+.CityStores{
+    float:right;
+    width:80%;
+}
+.CityStores:after{
+    clear:both;
+    display: block;
+    content:"";
+}

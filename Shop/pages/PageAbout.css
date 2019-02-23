@@ -1,0 +1,10 @@
+
+.PageAbout .City {
+float:left;
+width:20%;
+}
+.PageAbout:after{
+    clear:both;
+    display: block;
+    content:"";
+}
