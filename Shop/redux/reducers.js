@@ -1,15 +1,15 @@
 ﻿import { combineReducers } from 'redux';
 
-import brandsSortReducer from "./brandsSortReducer";
+import brandsReducer from "./BrandsReducer";
 import prodInfoReducer from "./prodInfoReducer";
-import brandsReducer from './BrandsReducer';
+import formSortReducer from './FormSortReducer';
 import newsReducer from './NewsReducer';
 import productsReducer from './ProductsReducer';
 import aboutReducer from './AboutReducer';
 
 let combinedReducer=combineReducers({
     // редьюсер countersReducer отвечает за раздел state под именем counters
-    brandsSort: brandsSortReducer, 
+    formSort: formSortReducer, 
     prodInfo: prodInfoReducer,
     brands: brandsReducer,   //Файл с брендами и их описанием
     news: newsReducer,   //Файл с новостями 

@@ -21,9 +21,6 @@ class CityStores extends React.PureComponent {
         } 
       )
   }
-  componentDidMount(){
-      console.log('компонент построен')
-  }
 
   state={
     checked:100, //выбранный адрес

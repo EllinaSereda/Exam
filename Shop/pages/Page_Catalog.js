@@ -3,8 +3,6 @@ import PropTypes from 'prop-types';
 import './PageCatalog.css';
 import Form from'../components/Form';
 import {connect} from 'react-redux';
-import { brandSort_create } from '../redux/BrandSort';
-import { prodInfo_create } from '../redux/ProdInfo';
 import {voteEvents} from '../events';
 import { NavLink } from 'react-router-dom';
 class Page_Catalog extends React.PureComponent {
@@ -19,34 +17,50 @@ class Page_Catalog extends React.PureComponent {
     prodTotal:null,
     startElem:0,
   }
+
   componentDidMount = () => {
-    voteEvents.addListener('EFilterSaved',this.setStartPage);  
+    voteEvents.addListener('EFilterSaved',this.setStartPage);  //Сохранение формы
+    
+    
   };
 
   componentWillUnmount = () => {
     voteEvents.removeListener('EFilterSaved',this.setStartPage);
   };
 
-  setItems=(EO)=>{
-    console.log(EO.target.textContent)
+
+  //Устанавка числа отображающихся товаров
+
+  setItems=(EO)=>{   
     this.setState({prodNumber:Number(EO.target.textContent)});
   }
-  setStartPage=()=>{
+
+  
+  setStartPage=()=>{ //Уставливаем 1 страницу
     this.setState({
       startElem:0,
     })
   }
+
+  // Изменение номера страницы
+
   changePage=(EO)=>{
     this.setState({
       startElem:Number((EO.target.textContent-1))*this.state.prodNumber
     })
   }
+
+  // Показать все товары
+
   showAll=(EO)=>{
     this.setState({
       startElem:0,
       prodNumber:this.props.products.products.length,
     })
   }
+
+  // Создаем массив брендов всех товаров
+
   brands=()=>{
     let brands=[];
     this.props.products.products.map(v=>{
@@ -57,21 +71,54 @@ class Page_Catalog extends React.PureComponent {
     return brands.sort((a,b)=>a-b);
   }
 
+  filterBrands=()=>{
+    let result=this.props.products.products;
+    if (this.props.savedFilter.savedBrands.length!=0){    
+     result=result.filter(v=>
+        {return this.props.savedFilter.savedBrands.some(x=>x==v.brand)})
+    }
+    if (this.props.savedFilter.sminprice!==null){
+      result=result.filter(v=>
+          {return v.stock.some(x=>x.price>=this.props.savedFilter.sminprice)})
+    }
+    if (this.props.savedFilter.smaxprice!==null){
+      result=result.filter(v=>
+          {return v.stock.some(x=>x.price<=this.props.savedFilter.smaxprice)})
+    }
+    if (this.props.savedFilter.sminvolume!==null){
+      result=result.filter(v=>
+          {return v.stock.some(x=>x.vol>=this.props.savedFilter.sminvolume)})
+    }
+    if (this.props.savedFilter.smaxvolume!==null){
+      result=result.filter(v=>
+          {return v.stock.some(x=>x.vol<=this.props.savedFilter.smaxvolume)})
+    }
+    if (this.props.savedFilter.ssex.length!=0){
+      result=result.filter(v=> this.props.savedFilter.ssex.some(x=>x==v.sex));
+    }
+
+
+    return result;
+  }
+
+
+
 
 
   render() {
+
     console.log('Page_Catalog render');
+    console.log(this.props.savedFilter)
     let code;
     let products;
     let sort;
     let pages=[];
-    if (this.props.showBrands.savedBrands.length!=0){    //фильтрация по отмеченным брендам
-      products=this.props.products.products.filter(v=>
-        {return this.props.showBrands.savedBrands.some(x=>x==v.brand)})
-    }
-    else 
-    {products=this.props.products.products;
-  }
+    products=this.filterBrands();
+    console.log(products); //фильтрация по отмеченным брендам
+    
+    
+
+    
 
   if (products.length/this.state.prodNumber!=1){ 
     //Номера страниц
@@ -115,14 +162,12 @@ class Page_Catalog extends React.PureComponent {
 
 }
 
-/*   */
+
 const mapStateToProps = function (state) {
   return {
-    // весь раздел Redux state под именем counters будет доступен
-    // данному компоненту как this.props.counters
-    showBrands: state.brandsSort,
-    prodInfo: state.prodInfo,
-    products: state.products,
+
+    savedFilter: state.formSort,  //Бренды выбранные в формк
+    products: state.products,   //Товары
   };
 };
 

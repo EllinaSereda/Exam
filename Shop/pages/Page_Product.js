@@ -1,5 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
+import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import './PageProduct.css';
 class Page_Product extends React.PureComponent {
@@ -21,9 +22,7 @@ class Page_Product extends React.PureComponent {
   render() {
     console.log('Page_Product render');
     const id = this.props.match.params.id;
-    let code;
-    this.state.info?
-    code=this.state.info.goods.filter(v=>v.code==id).map(v=>
+    return  <div className='PageProduct' >{this.props.products.products.filter(v=>v.code==id).map(v=>
       {
         let img=[];
        img.push(v.img.map((v,i)=><img alt={i} key={i} className='small' onClick={this.setBigImg} src={v}/>));
@@ -41,8 +40,7 @@ class Page_Product extends React.PureComponent {
       <div>{v.stock.length} варианта</div></div>
       <div>{Math.min.apply(null,v.stock.map(v=>v.price))}-{Math.max.apply(null,v.stock.map(v=>v.price))}</div>
       </div>})
-    : code=<div className='load'> Загрузка...</div> ;
-    return  <div className='PageProduct' >{code}</div>;
+  }</div>;
    
     
 
@@ -50,6 +48,11 @@ class Page_Product extends React.PureComponent {
 
 }
 
-export default Page_Product;
+const mapStateToProps = function (state) {
+  return {
+    
+    products: state.products,   //Товары
+  };
+};
 
-   //ДЛЯ СТРАНИЦЫ ОПИСАНИЯ ТОВАРА
+export default connect(mapStateToProps)(Page_Product);
