@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BrandInfo from '../components/BrandInfo';
+import BrandInfo from '../../components/BrandInfo';
 import {connect} from 'react-redux';
 
 class Page_BrandInfo extends React.PureComponent {

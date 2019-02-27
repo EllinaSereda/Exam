@@ -9,6 +9,7 @@ import { news_create } from '../redux/News';
 import { products_create } from '../redux/Products';
 import { brands_create } from '../redux/Brands';
 import { about_create } from '../redux/About';
+import { user_create } from '../redux/User';
 import firebase from 'firebase';
 import './reset.css';
 import './Main.css';
@@ -20,8 +21,8 @@ class Main extends React.PureComponent {
   state={
     ready:null,
   }
-    componentDidMount(){
 
+  componentDidMount(){
   let promises=[];
    const newsRef = firebase.firestore().doc('MainPage/slider').get();
    promises.push(newsRef);
@@ -31,12 +32,34 @@ class Main extends React.PureComponent {
    promises.push(brandsRef);
    const aboutRef =firebase.firestore().doc('MainPage/about').get();
    promises.push(aboutRef);
+ 
+
+   //ИНИЦИАЛИЗАЦИЯ ЮЗЕРА//
+  firebase.auth().onAuthStateChanged((user)=> {
+    if (user) {
+  firebase.firestore().doc('Users/Users').get()
+    .then ((doc)=>{
+      if (doc){
+        let log=doc.data()[user.email];
+        this.props.dispatch(user_create(log)); 
+      }
+    })
+    .catch(()=>{
+      console.log('Error')
+    })
+    } else {
+      //localStorage.parfumShop_busket=JSON.stringify([]);
+      // No user is signed in.
+    }
+  });
+
     Promise.all(promises)
     .then((values)=>{
         this.props.dispatch(news_create(values[0].data()) );
         this.props.dispatch(products_create(values[1].data()) );
         this.props.dispatch(brands_create(values[2].data()) );
         this.props.dispatch(about_create(values[3].data()) );
+       
         this.setState({ready:1});
     })
     .catch(()=>{
@@ -54,18 +77,21 @@ class Main extends React.PureComponent {
       //return 
     })
   }*/
+  initUser=(account)=>{
+    
+  }
     
 
 render() {
-console.log(this.props)
+console.log('Main_render')
 let code=null;
 this.state.ready?
 code=<BrowserRouter>
       <div className="Main"> <div className="Head">
         <input type="text"></input>
         <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img className="logo" src="../images/logo.png" alt="#"/></NavLink>
-        <input type="button" value="Регистрация/Вход"/>
-        <input type="button" value="Корзина"/>
+        {this.props.user.info.length!=0?<NavLink to="/account" exact className="PageLink" activeClassName="ActivePageLink">Личный кабинет</NavLink>:<NavLink to="/registration" exact className="PageLink" activeClassName="ActivePageLink">Рег/Вход</NavLink>}
+        <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><input type="button" value="Корзина"/></NavLink>
        </div>
        <nav>
            <ul className="MainMenu">
@@ -110,6 +136,7 @@ const mapStateToProps = function (state) {
       news: state.news,   //Файл с новостями 
       products: state.products,
       about: state.about,
+      user: state.user,
     };
 };
   

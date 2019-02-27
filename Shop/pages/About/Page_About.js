@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import './PageAbout.css';
 import {connect} from 'react-redux';
-import CityStores from '../components/CityStores';
+import CityStores from '../../components/CityStores';
 class Page_About extends React.PureComponent {
 
   static propTypes = {

@@ -1,9 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import './PageCatalog.css';
-import Form from'../components/Form';
+import Form from'../../components/Form';
 import {connect} from 'react-redux';
-import {voteEvents} from '../events';
+import {voteEvents} from '../../events';
 import { NavLink } from 'react-router-dom';
 class Page_Catalog extends React.PureComponent {
 
@@ -16,6 +16,7 @@ class Page_Catalog extends React.PureComponent {
     prodNumber:3,
     prodTotal:null,
     startElem:0,
+    sort:0,
   }
 
   componentDidMount = () => {
@@ -59,6 +60,10 @@ class Page_Catalog extends React.PureComponent {
     })
   }
 
+  setSort=(EO)=>{
+    this.setState({sort:Number(EO.target.value),startElem:0})
+  }
+
   // Создаем массив брендов всех товаров
 
   brands=()=>{
@@ -71,7 +76,7 @@ class Page_Catalog extends React.PureComponent {
     return brands.sort((a,b)=>a-b);
   }
 
-  filterBrands=()=>{
+  filterProducts=()=>{
     let result=this.props.products.products;
     if (this.props.savedFilter.savedBrands.length!=0){    
      result=result.filter(v=>
@@ -96,9 +101,52 @@ class Page_Catalog extends React.PureComponent {
     if (this.props.savedFilter.ssex.length!=0){
       result=result.filter(v=> this.props.savedFilter.ssex.some(x=>x==v.sex));
     }
-
-
     return result;
+  }
+
+  sortProducts=(prod)=>{
+    switch (this.state.sort){
+      case 0: 
+      prod=prod.sort((a,b)=>  {
+        return a.code-b.code;
+      });
+      break;
+      case 1:
+      prod=prod.sort((a,b)=>{
+        if ( a.name<b.name )  return -1;
+        if ( a.name>b.name )  return 1;
+        return 0;});
+      break;
+      case 2:
+      prod=prod.sort((a,b)=>{
+        if ( a.name<b.name )  return 1;
+        if ( a.name>b.name )  return -1;
+        return 0;});
+      break;
+      case 3:
+      prod=prod.sort((a,b)=>  {
+        return Math.min.apply(null,a.stock.map(v=>v.price))-Math.min.apply(null,b.stock.map(v=>v.price));
+      });
+      break;
+      case 4:
+      prod=prod.sort((a,b)=>  {
+        return Math.min.apply(null,b.stock.map(v=>v.price))-Math.min.apply(null,a.stock.map(v=>v.price));
+      });
+      break;
+      case 5:
+      prod=prod.sort((a,b)=>{
+        if ( a.brand<b.brand )  return -1;
+        if ( a.brand>b.brand )  return 1;
+        return 0;});
+      break;
+      case 6:
+      prod=prod.sort((a,b)=>{
+        if ( a.brand<b.brand )  return 1;
+        if ( a.brand>b.brand )  return -1;
+        return 0;});
+      break;
+    }
+    return prod;
   }
 
 
@@ -111,15 +159,22 @@ class Page_Catalog extends React.PureComponent {
     console.log(this.props.savedFilter)
     let code;
     let products;
-    let sort;
     let pages=[];
-    products=this.filterBrands();
+    products=this.filterProducts();
+    products=this.sortProducts(products);
     console.log(products); //фильтрация по отмеченным брендам
-    
+    let sortVariants=<select defaultValue="null" onChange={this.setSort}>
+      <option value="0">По популярности</option>
+      <option value="1">Сортировка A-Я</option>
+      <option value="2">Сортировка Я-А</option>
+      <option value="3">Начинать с дешевых</option>
+      <option value="4">Начинать с дорогих</option>
+      <option value="5">Сортировка бренды А-Я</option>
+      <option value="6">Сортировка бренды Я-А</option>
+    </select>
     
 
     
-
   if (products.length/this.state.prodNumber!=1){ 
     //Номера страниц
   for(let i=1;i<=Math.ceil(products.length/this.state.prodNumber);i++){
@@ -142,6 +197,7 @@ class Page_Catalog extends React.PureComponent {
 
     
     return  <div className='PageCatalog' >
+    {sortVariants}
     <Form brands={this.brands()}/>
     <div>
       <span key={4} onClick={this.setItems}>4</span>

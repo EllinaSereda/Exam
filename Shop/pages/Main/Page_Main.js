@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BrandDesk  from '../components/BrandDesk';
-import Slider  from '../components/Slider'
+import BrandDesk  from '../../components/BrandDesk';
+import Slider  from '../../components/Slider'
 import {connect} from 'react-redux';
 import './PageMain.css';
 class Page_Main extends React.PureComponent {

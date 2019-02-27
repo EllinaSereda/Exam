@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import BrandDesk from '../components/BrandDesk';
+import BrandDesk from '../../components/BrandDesk';
 import {connect} from 'react-redux';
 
 

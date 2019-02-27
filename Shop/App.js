@@ -22,3 +22,5 @@ ReactDOM.render(
   
   , document.getElementById('container') 
 );
+//localStorage.ellinaSereda={adsdv:'sfdbad'};
+console.log(localStorage);
