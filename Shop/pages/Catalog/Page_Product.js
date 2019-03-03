@@ -44,7 +44,7 @@ class Page_Product extends React.PureComponent {
   }
   addToBusket=(EO)=>{
     if(EO.target.id>0){
-    if (this.props.user.info.length!=0){
+    if (this.props.user.info!==null){
       let product=this.props.user.info.order;
       console.log(this.props.user.info);
       if ([this.props.match.params.id] in product ){
@@ -66,17 +66,25 @@ class Page_Product extends React.PureComponent {
       })
     }
     else{
-      console.log(localStorage.parfumShop_busket);
       if(localStorage.parfumShop_busket){
+        console.log(localStorage.parfumShop_busket);
         let storage=JSON.parse(localStorage.parfumShop_busket);
-        console.log(storage);
-        storage.push({code:this.props.match.params.id,vol:EO.target.id,amount:this.state.amount[EO.target.id]});
-        console.log(storage);
+        if ([this.props.match.params.id] in storage ){
+          if ([EO.target.id] in storage[this.props.match.params.id]){
+            storage[this.props.match.params.id][EO.target.id]+=this.state.amount[EO.target.id];
+          }
+          else{
+            storage[this.props.match.params.id][EO.target.id]=this.state.amount[EO.target.id];
+          }
+        }
+        else{
+          storage[this.props.match.params.id]={[EO.target.id]:this.state.amount[EO.target.id]};
+        }
+ 
         localStorage.setItem('parfumShop_busket',JSON.stringify(storage));
-        console.log(storage);
       }
       else{
-        localStorage.setItem('parfumShop_busket',JSON.stringify([{code:this.props.match.params.id,vol:EO.target.id,amount:this.state.amount[EO.target.id]}]));
+        localStorage.setItem('parfumShop_busket',JSON.stringify({[this.props.match.params.id]:{[EO.target.id]:this.state.amount[EO.target.id]}}));
       }
       }
     }
@@ -85,8 +93,8 @@ class Page_Product extends React.PureComponent {
   render() {
     console.log('Page_Product render');
     console.log(this.props.user);
-   //delete localStorage.parfumShop_busket;
-    console.log(JSON.parse(localStorage.parfumShop_busket));
+  //delete localStorage.parfumShop_busket;
+    console.log(localStorage.parfumShop_busket);
     const id = this.props.match.params.id;
     return  <div className='PageProduct' >{this.props.products.products.filter(v=>v.code==id).map(v=>
       {

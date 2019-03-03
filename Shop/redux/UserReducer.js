@@ -5,7 +5,7 @@ import { PRODUCT_DELETE } from './User';
 
 const initState={
 
-  info: [],
+  info: null,
 
 }
 
@@ -29,7 +29,7 @@ function userReducer(state=initState,action) {
         console.log('state до обработки редьюсером:',state);
         console.log(action.info);
         let newState={...state,
-          info:[],
+          info:null,
         };
         console.log('state после обработки редьюсером:',newState);
         return newState;

@@ -1,19 +1,87 @@
+.Main {
+    font-family: 'Montserrat Alternates', sans-serif;
+    background:white;
+}
 .Main .Head{
     text-align: center;
     margin:0 auto;
     
 }
+.Namecent{
+	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
+	background-repeat:no-repeat;
+	text-align:center;
+}
 
+h2 span{
+	font-size:80px;
+	font-family:"Grand Hotel", cursive;
+	letter-spacing:0.12em;
+	color:#9c3c76;
+	line-height:1.16;
+}
+h2{
+	padding-top:15px;
+}
+
+.r{
+	margin-left:200px;
+}
+
+.Main nav{
+
+    text-align:center;
+	height:68px;
+	background-color:#ECE2FF;
+	position:relative;
+}
 .Main nav ul li a{
+    color:#631B42;
+    font-weight:bold;
     text-align: center;
     display: block;
     float:left;
     width:20%;
-    height:55px;
-    background-color:lightblue;
+    font-size:18px;
     box-sizing:border-box;
     padding:10px;
 }
+
+
+.Main .roll{
+    display: inline-block;
+    overflow: hidden;
+    line-height: 36px;
+    height: 36px;
+    position: relative;
+}
+.Main .disc{
+    display: inline-block;
+    overflow: hidden;
+    line-height: 18px;
+    height: 38px;
+    position: relative;
+}
+.Main .roll span{
+    padding:0;
+    display: block;
+    position: relative;
+    top: 2px;
+    transition: top .5s ease;
+    -webkit-transition: top .5s ease;
+    -moz-transition: top .5s ease;
+}
+
+.Main .hover{
+    text-shadow: #631B42 0 0 2px;
+    color: white;
+    margin-top:5px;
+}
+.Main ul.MainMenu li:hover .roll span{
+    top: -40px;
+}
+
+    
 .Main .logo{
     width:200px;
     

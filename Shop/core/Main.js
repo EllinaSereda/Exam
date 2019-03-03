@@ -41,16 +41,14 @@ class Main extends React.PureComponent {
     .then ((doc)=>{
       if (doc){
         let log=doc.data()[user.email];
+        console.log(log);
         this.props.dispatch(user_create(log)); 
       }
     })
     .catch(()=>{
       console.log('Error')
     })
-    } else {
-      //localStorage.parfumShop_busket=JSON.stringify([]);
-      // No user is signed in.
-    }
+    } 
   });
 
     Promise.all(promises)
@@ -83,23 +81,56 @@ class Main extends React.PureComponent {
     
 
 render() {
+//firebase.auth().signOut();
 console.log('Main_render')
 let code=null;
 this.state.ready?
 code=<BrowserRouter>
       <div className="Main"> <div className="Head">
+        <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
+          <div className="Namecent">
+	          <h2 className="name"><span class="l">Eau de</span><span class="r">Parfume</span>
+            </h2>
+          </div>
+        </NavLink>
         <input type="text"></input>
-        <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img className="logo" src="../images/logo.png" alt="#"/></NavLink>
-        {this.props.user.info.length!=0?<NavLink to="/account" exact className="PageLink" activeClassName="ActivePageLink">Личный кабинет</NavLink>:<NavLink to="/registration" exact className="PageLink" activeClassName="ActivePageLink">Рег/Вход</NavLink>}
+        
+        {this.props.user.info!==null?<NavLink to="/account" exact className="PageLink" activeClassName="ActivePageLink">Личный кабинет</NavLink>:<NavLink to="/registration" exact className="PageLink" activeClassName="ActivePageLink">Рег/Вход</NavLink>}
         <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><input type="button" value="Корзина"/></NavLink>
        </div>
        <nav>
            <ul className="MainMenu">
-               <li><NavLink to="/catalog" exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
-               <li><NavLink to="/brands" exact className="PageLink" activeClassName="ActivePageLink">Бренды</NavLink></li>
-               <li><NavLink to="/news" exact className="PageLink" activeClassName="ActivePageLink">Новости</NavLink></li>
-               <li><NavLink to="/discont" exact className="PageLink" activeClassName="ActivePageLink">Дисконтная программа</NavLink></li>
-               <li><NavLink to="/about" exact className="PageLink" activeClassName="ActivePageLink">О нас</NavLink></li>
+
+               <li><NavLink to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">
+                <span className="roll">
+				          <span className="seen">Каталог</span>
+				          <span className="hover">Каталог</span>
+			          </span>
+               </NavLink></li>
+               <li><NavLink to="/brands" exact className="PageLink" activeClassName="ActivePageLink">
+               <span className="roll">
+				          <span className="seen">Бренды</span>
+				          <span className="hover">Бренды</span>
+			          </span>
+               </NavLink></li>
+               <li><NavLink to="/news" exact className="PageLink" activeClassName="ActivePageLink">
+               <span className="roll">
+				          <span className="seen">Новости</span>
+				          <span className="hover">Новости</span>
+			          </span>
+               </NavLink></li>
+               <li><NavLink to="/discont" exact className="PageLink" activeClassName="ActivePageLink">
+               <span className="roll disc">
+				          <span className="seen">Дисконтная <br/>программа</span>
+				          <span className="hover">Дисконтная программа</span>
+			          </span>
+               </NavLink></li>
+               <li><NavLink to="/about" exact className="PageLink" activeClassName="ActivePageLink">
+               <span className="roll">
+				          <span className="seen">О нас</span>
+				          <span className="hover">О нас</span>
+			          </span>
+               </NavLink></li>
            </ul>
        </nav>
        <PagesRouter/>

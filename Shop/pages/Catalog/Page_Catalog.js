@@ -30,38 +30,17 @@ class Page_Catalog extends React.PureComponent {
   };
 
 
-  //Устанавка числа отображающихся товаров
+  //Устанавка  первой страницы после применения фильтров
 
-  setItems=(EO)=>{   
-    this.setState({prodNumber:Number(EO.target.textContent)});
+  setStartPage=()=>{
+    console.log(this.props.history.push('1'));
+    this.props.history.push('1')
   }
-
   
-  setStartPage=()=>{ //Уставливаем 1 страницу
-    this.setState({
-      startElem:0,
-    })
-  }
-
-  // Изменение номера страницы
-
-  changePage=(EO)=>{
-    this.setState({
-      startElem:Number((EO.target.textContent-1))*this.state.prodNumber
-    })
-  }
-
-  // Показать все товары
-
-  showAll=(EO)=>{
-    this.setState({
-      startElem:0,
-      prodNumber:this.props.products.products.length,
-    })
-  }
 
   setSort=(EO)=>{
-    this.setState({sort:Number(EO.target.value),startElem:0})
+    this.setState({sort:Number(EO.target.value)});
+    this.setStartPage();
   }
 
   // Создаем массив брендов всех товаров
@@ -159,7 +138,8 @@ class Page_Catalog extends React.PureComponent {
     console.log(this.props.savedFilter)
     let code;
     let products;
-    let pages=[];
+    
+    console.log(this.props.match.params.amount)
     products=this.filterProducts();
     products=this.sortProducts(products);
     console.log(products); //фильтрация по отмеченным брендам
@@ -173,19 +153,18 @@ class Page_Catalog extends React.PureComponent {
       <option value="6">Сортировка бренды Я-А</option>
     </select>
     
-
-    
-  if (products.length/this.state.prodNumber!=1){ 
     //Номера страниц
-  for(let i=1;i<=Math.ceil(products.length/this.state.prodNumber);i++){
-  pages[i]=<span key={i} onClick={this.changePage}>{i}</span>
-  }
-}  
+    let pages=[];  
+    if (products.length/this.props.match.params.amount!=1){ 
+        for(let i=1;i<=Math.ceil(products.length/this.props.match.params.amount);i++){
+        pages[i]=<NavLink key={i} to={"/catalog/"+this.props.match.params.amount+"/"+i} exact className="PageLink" activeClassName="ActivePageLink"><span>{i}</span></NavLink>
+        }
+    }  
     
-    code=products.slice(this.state.startElem,this.state.startElem + this.state.prodNumber);
+    code=products.slice(this.props.match.params.amount*(this.props.match.params.page-1),this.props.match.params.amount*(this.props.match.params.page-1) + this.props.match.params.amount);
     code=code.map(v=>
       {return <div key={v.code} className='Product'>
-        <NavLink key={v.code} to={"/catalog/"+v.code} exact className="PageLink" activeClassName="ActivePageLink"><img alt={0} key={0}  src={v.img[0]}/></NavLink>
+        <NavLink key={v.code} to={"/catalog/product/"+v.code} exact className="PageLink" activeClassName="ActivePageLink"><img alt={0} key={0}  src={v.img[0]}/></NavLink>
         <h3>{v.brand}</h3>
         <p>{v.name}</p>
         <div>Объем, мл:{v.stock.sort((a,b)=>a.vol-b.vol).map(v=><span key={v.vol}>{v.vol}</span>)}
@@ -200,10 +179,11 @@ class Page_Catalog extends React.PureComponent {
     {sortVariants}
     <Form brands={this.brands()}/>
     <div>
-      <span key={4} onClick={this.setItems}>4</span>
-      <span key={5} onClick={this.setItems}>5</span>
-      <span key={10}  onClick={this.setItems}>10</span>
-      <span key={'all'} onClick={this.showAll}>Показать все</span>
+    <NavLink key={4} to={"/catalog/"+4+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span>4</span></NavLink>
+    <NavLink key={5} to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span>5</span></NavLink> 
+    <NavLink key={10} to={"/catalog/"+10+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span >10</span></NavLink> 
+    <NavLink key="all" to={"/catalog/"+this.props.products.products.length+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span>all</span></NavLink> 
+     
     </div>
       
     {code}
@@ -228,3 +208,6 @@ const mapStateToProps = function (state) {
 };
 
 export default connect(mapStateToProps)(Page_Catalog);
+/*// <span key={5} onClick={this.setItems}>5</span>
+      <span key={10}  onClick={this.setItems}>10</span>
+      <span key={'all'} onClick={this.showAll}>Показать все</span>*/

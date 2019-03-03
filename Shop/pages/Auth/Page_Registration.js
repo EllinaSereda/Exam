@@ -31,35 +31,33 @@ class Page_Registration extends React.PureComponent {
       console.log(this.state.email,this.state.password)
       const promise=auth.createUserWithEmailAndPassword(this.state.email,this.state.password);
       promise
-     /* .then(firebaseUser=>{
-        if (firebaseUser){
-          let users;
-          firebase.firestore().doc('Users/Users').get()
-          .then (doc=> {users=doc.data().user;
-          (users.length==0||users.every(v=>v.email!=firebaseUser.user.email))?
-          users.push({name:this.state.name, email: firebaseUser.user.email ,order: [],
-            buy: []}):null;
-          this.props.dispatch(user_create({name:this.state.name, email: firebaseUser.user.email,order: [],
-            buy: []}));
-            console.log(user);
-          firebase.firestore().doc('Users/Users').set({
-            user: users,
-          })
-          this.props.history.push('/account');
-         
-        })
-        }
-      })*/
       .then(firebaseUser=>{
         if (firebaseUser){
-          let user={name:this.state.name, email: firebaseUser.user.email ,order: [],
+          let user={name:this.state.name, email: firebaseUser.user.email ,order: {},
             buy: []};
-          this.props.dispatch(user_create(user));
-            console.log(user);
-          firebase.firestore().doc('Users/Users').set({
-            [firebaseUser.user.email]:user,
+          console.log(user);
+          if (localStorage.parfumShop_busket){
+            let order=JSON.parse(localStorage.parfumShop_busket);
+            console.log(firebaseUser.user.email)
+            user.order=order;
+            delete localStorage.parfumShop_busket;
+          }
+          firebase.firestore().doc('Users/Users').get()
+          .then((doc)=>{
+            return firebase.firestore().doc('Users/Users').set({
+              ... doc.data(),
+              [firebaseUser.user.email]:user
+            })
           })
-          this.props.history.push('/account');
+          .then(()=>{
+            this.props.dispatch(user_create(user));
+            this.props.history.push('/account');
+          })
+          .catch(()=>{
+            console.log('Error')
+          })
+          
+          
         }
       })
       .catch(e=>console.log(e.message));
