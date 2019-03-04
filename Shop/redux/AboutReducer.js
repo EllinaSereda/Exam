@@ -1,4 +1,4 @@
-import { ABOUT_CREATE } from './About';
+import { ABOUT_CREATE } from './AboutAC';
 
 const initState={
 

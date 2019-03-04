@@ -1,3 +1,4 @@
+
 .Main {
     font-family: 'Montserrat Alternates', sans-serif;
     background:white;
@@ -7,42 +8,83 @@
     margin:0 auto;
     
 }
-.Namecent{
+
+/*Шапка*/
+
+.Main .Namecent{
 	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
 	background-repeat:no-repeat;
 	text-align:center;
 }
 
-h2 span{
-	font-size:80px;
+.Main .Namecent h2 span{
+	font-size:85px;
 	font-family:"Grand Hotel", cursive;
 	letter-spacing:0.12em;
 	color:#9c3c76;
-	line-height:1.16;
+	line-height:2;
 }
-h2{
+.Main .Namecent h2{
 	padding-top:15px;
 }
 
-.r{
+.Main .Namecent .r{
 	margin-left:200px;
 }
+.Main .sideRight{
+    top:65px;
+    position:absolute;
+    right:10px;
+}
+.Main .Search{
+    clear:both;
+    width:100%;
+    height:70px;
+    background-color:rgba(255, 202, 220, 0.4);
+}
+.Main .Search input{
+   width:80%;
+   height:20px;
+   opacity: 0.5;
+   background-color:white;
+   border:none;
+   margin:15px;
+   padding:10px;
+   font-size:20px;
+   border-radius:15px;
+   outline: none;
+}
+.Main .Search input:hover, .Main .Search input:active {
+    opacity: 1;
+    outline: none;
+ }
+.Main .SearchIcon{
+    width:40px;
+    padding:15px;
+    float:right;
+    right:40px;
+}
 
+.Main .Icons{
+    width:60px;
+    padding:10px;
+}
+/*Меню*/
 .Main nav{
 
     text-align:center;
-	height:68px;
-	background-color:#ECE2FF;
+	height:70px;
+	background-color:#9C3C76;
 	position:relative;
 }
 .Main nav ul li a{
-    color:#631B42;
+    color:white;
     font-weight:bold;
     text-align: center;
     display: block;
     float:left;
     width:20%;
-    font-size:18px;
+    font-size:20px;
     box-sizing:border-box;
     padding:10px;
 }
@@ -58,15 +100,15 @@ h2{
 .Main .disc{
     display: inline-block;
     overflow: hidden;
-    line-height: 18px;
-    height: 38px;
+    line-height: 20px;
+    height: 46px;
     position: relative;
 }
 .Main .roll span{
     padding:0;
     display: block;
     position: relative;
-    top: 2px;
+    top: 7px;
     transition: top .5s ease;
     -webkit-transition: top .5s ease;
     -moz-transition: top .5s ease;
@@ -74,21 +116,23 @@ h2{
 
 .Main .hover{
     text-shadow: #631B42 0 0 2px;
-    color: white;
+    color: #D5C3DD;
     margin-top:5px;
 }
 .Main ul.MainMenu li:hover .roll span{
-    top: -40px;
+    top: -35px;
+}
+.Main  ul.MainMenu li:hover .disc span{
+    top: -42px;
 }
 
-    
 .Main .logo{
     width:200px;
     
 }
 .Main .logoFooter{
     float:left;
-    width:30%;
+    width:100px;
 }
 .Main .FooterMenu{
     float:left;
@@ -104,7 +148,7 @@ h2{
     content:"";
 }
 .Main footer{
-background-color: beige;
+    background-color:rgba(255, 202, 220, 0.4);
 }
 .Main footer:after{
     clear:both;
@@ -114,6 +158,7 @@ background-color: beige;
 .Main div.load{
     height:500px;
 }
+
 
 /*Загрузка*/
 .Loading{

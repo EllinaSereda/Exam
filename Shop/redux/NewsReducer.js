@@ -1,4 +1,4 @@
-import { NEWS_CREATE } from './News';
+import { NEWS_CREATE } from './NewsAC';
 
 const initState={
 

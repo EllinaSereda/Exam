@@ -1,4 +1,4 @@
-import { BRANDS_CREATE } from './Brands';
+import { BRANDS_CREATE } from './BrandsAC';
 
 const initState={
 

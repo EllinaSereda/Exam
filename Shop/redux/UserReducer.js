@@ -1,7 +1,7 @@
-import { USER_CREATE } from './User';
-import { USER_LOGOUT } from './User';
-import { PRODUCT_ADDTOBUSKET } from './User';
-import { PRODUCT_DELETE } from './User';
+import { USER_CREATE } from './UserAC';
+import { USER_LOGOUT } from './UserAC';
+import { PRODUCT_ADDTOBUSKET } from './UserAC';
+import { PRODUCT_DELETE } from './UserAC';
 
 const initState={
 

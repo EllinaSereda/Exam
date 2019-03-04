@@ -5,11 +5,11 @@ import { BrowserRouter } from 'react-router-dom';
 import {connect} from 'react-redux';
 import PagesRouter from '../pages/PagesRouter';
 import { NavLink } from 'react-router-dom';
-import { news_create } from '../redux/News';
-import { products_create } from '../redux/Products';
-import { brands_create } from '../redux/Brands';
-import { about_create } from '../redux/About';
-import { user_create } from '../redux/User';
+import { news_create } from '../redux/NewsAC';
+import { products_create, products_search } from '../redux/ProductsAC';
+import { brands_create } from '../redux/BrandsAC';
+import { about_create } from '../redux/AboutAC';
+import { user_create } from '../redux/UserAC';
 import firebase from 'firebase';
 import './reset.css';
 import './Main.css';
@@ -20,6 +20,8 @@ import './Main.css';
 class Main extends React.PureComponent {
   state={
     ready:null,
+    search:null,
+    searchInput:null,
   }
 
   componentDidMount(){
@@ -78,6 +80,16 @@ class Main extends React.PureComponent {
   initUser=(account)=>{
     
   }
+  search=()=>{
+    let result=this.state.searchInput;
+    this.props.dispatch(products_search(result)); 
+    
+  }
+  setSearch=(EO)=>{
+    this.setState({searchInput:EO.target.value})
+    
+    console.log('dsv');
+  }
     
 
 render() {
@@ -87,16 +99,18 @@ let code=null;
 this.state.ready?
 code=<BrowserRouter>
       <div className="Main"> <div className="Head">
+        
+        <div className="sideRight">
+          <NavLink to={this.props.user.info!==null?"/account":"/registration"} exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fuser-shape.png?alt=media&token=8f6275a5-6fda-46bc-b881-5602ac16e9e5"/></NavLink>
+          <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/></NavLink>
+        </div>
         <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
           <div className="Namecent">
 	          <h2 className="name"><span class="l">Eau de</span><span class="r">Parfume</span>
             </h2>
           </div>
         </NavLink>
-        <input type="text"></input>
         
-        {this.props.user.info!==null?<NavLink to="/account" exact className="PageLink" activeClassName="ActivePageLink">Личный кабинет</NavLink>:<NavLink to="/registration" exact className="PageLink" activeClassName="ActivePageLink">Рег/Вход</NavLink>}
-        <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><input type="button" value="Корзина"/></NavLink>
        </div>
        <nav>
            <ul className="MainMenu">
@@ -133,11 +147,15 @@ code=<BrowserRouter>
                </NavLink></li>
            </ul>
        </nav>
+       <div className="Search">
+       <NavLink to={"/catalog/"+5+"/"+1+"/"+"s"} exact className="PageLink" activeClassName="ActivePageLink"><img className="SearchIcon" onClick={this.search} src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fmagnifying-glass.png?alt=media&token=a847c8db-325c-48b9-b4c2-f0b1d348ff0a"/></NavLink> 
+          <input type="text" onChange={this.setSearch} placeholder="Поиск"></input>
+        </div>
        <PagesRouter/>
-       {<footer>
-       <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img className="logoFooter" src="../images/logo.png" alt="#"/></NavLink> 
+       <footer>
+       <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img className="logoFooter" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618" alt="#"/></NavLink> 
        <ul className="FooterMenu">
-               <li><NavLink to="/catalog" exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
+               <li><NavLink to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
                <li><NavLink to="/brands" exact className="PageLink" activeClassName="ActivePageLink">Бренды</NavLink></li>
                <li><NavLink to="/news" exact className="PageLink" activeClassName="ActivePageLink">Новости</NavLink></li>
                <li><NavLink to="/discont" exact className="PageLink" activeClassName="ActivePageLink">Дисконтная программа</NavLink></li>
@@ -149,7 +167,7 @@ code=<BrowserRouter>
             <input type="button" value="Vk"/>
             <input type="button" value="facebook"/>
         </div>
-       </footer>}
+       </footer>
        </div>
         </BrowserRouter>
       : code=<div className="Loading"><div className="lds-facebook"><div></div><div></div><div></div></div></div>;

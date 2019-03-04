@@ -1,16 +1,22 @@
 .PageCatalog img{
-    width:150px;
+    width:80%;
+    
 }
 .PageCatalog .Product{
-    border:1px solid black;
-    width:200px;
-    height:300px;
-    padding:15px;
+    width:100%;
+    padding:50px 0;
     text-align: center;
-    float:left;
+}
+.PageCatalog .Product:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
 }
 .PageCatalog:after{
     clear:both;
     display: block;
     content:"";
+}
+.PageCatalog .Prod {
+    display:grid;
+    width:75%;
+    grid-template-columns: repeat(3, 1fr);
 }

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { NavLink } from 'react-router-dom';
 import firebase from 'firebase';
-import {product_delete} from '../../redux/User';
+import {product_delete} from '../../redux/UserAC';
 
 class Page_Order extends React.PureComponent {
 

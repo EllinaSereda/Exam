@@ -2,7 +2,7 @@ import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
-import {user_logout} from '../../redux/User';
+import {user_logout} from '../../redux/UserAC';
 
 class Page_Account extends React.PureComponent {
 

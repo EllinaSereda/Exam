@@ -56,7 +56,12 @@ class Page_Catalog extends React.PureComponent {
   }
 
   filterProducts=()=>{
-    let result=this.props.products.products;
+    let typeP=this.props.match.params.s;
+    let result;
+    typeP?
+    result=this.props.products.search:
+    result=this.props.products.products;
+    console.log(typeP);
     if (this.props.savedFilter.savedBrands.length!=0){    
      result=result.filter(v=>
         {return this.props.savedFilter.savedBrands.some(x=>x==v.brand)})
@@ -185,8 +190,9 @@ class Page_Catalog extends React.PureComponent {
     <NavLink key="all" to={"/catalog/"+this.props.products.products.length+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span>all</span></NavLink> 
      
     </div>
-      
+    <div className="Prod">
     {code}
+    </div>  
     <div className='Pages'>
      {pages}
     </div>

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
-import {user_create, user_logout} from '../../redux/User';
+import {user_create, user_logout} from '../../redux/UserAC';
 
 class Page_Registration extends React.PureComponent {
 

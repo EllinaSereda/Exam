@@ -1,8 +1,9 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
+import "./Form.css";
 import {voteEvents} from '../events';
-import { sex_change, reset_create, brandSort_change,minPrice_change,maxPrice_change,minVol_change,maxVol_change, form_changeSave } from '../redux/FormSort';
+import { sex_change, reset_create, brandSort_change,minPrice_change,maxPrice_change,minVol_change,maxVol_change, form_changeSave } from '../redux/FormSortAC';
 
 
 class Form extends React.PureComponent {
@@ -58,10 +59,15 @@ class Form extends React.PureComponent {
 
   render() {
 let code;
-code=<form>  
+code=<form> 
+    <h6>Подбор товаров</h6> 
+    <hr/> 
+    <div>
     <p>Цена</p>             
     <label htmlFor='minPr'>От</label><input id='minPr' onBlur={this.setMinPr} type='number'/>
     <label htmlFor='maxPr'>До</label><input id='maxPr' onBlur={this.setMaxPr} type='number'/>
+    </div>
+    <hr/> 
     <fieldset>      
       <legend>Бренд</legend>    
       {this.props.brands.map((v,i)=>
@@ -70,7 +76,8 @@ code=<form>
         <label htmlFor={v}>{v}</label>
       </div>)} 
     </fieldset> 
-    <fieldset>      
+    <hr/> 
+    <fieldset> 
       <legend>Для кого</legend>    
       <div key={1}>
         <input type="checkbox" name="sex" id={1} value={'m'} checked={this.props.savedFilter.sex.some(x=>x=='m')} onChange={this.setSex}/>
@@ -84,19 +91,20 @@ code=<form>
         <input type="checkbox" name="sex" id={3} value={'u'} checked={this.props.savedFilter.sex.some(x=>x=='u')} onChange={this.setSex}/>
         <label htmlFor={3}>Унисекс</label>
       </div>
-    </fieldset> 
+    </fieldset>
+    <hr/>
     <p>Объем</p>             
     <label htmlFor='minVol'>От</label><input id='minVol' onChange={this.setMinVol} type='number'/>
     <label htmlFor='maxVol'>До</label><input id='maxVol' onChange={this.setMaxVol} type='number'/>
-
-    <input type="button" onClick={this.saveChanges} value="Показать" />
-    <input type="button" onClick={this.resetChanges} value="Сбросить фильтры" />
-
+    <div className="Buttons">
+      <input type="button" onClick={this.saveChanges} value="Показать" /> 
+      <input type="button" onClick={this.resetChanges} value="Сбросить фильтры" />
+    </div>
 
       
   </form>
 
-    return <div className="FormDesk">
+    return <div className="Form">
     {code}
     </div> ;
 

@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
-import {product_addtobusket} from '../../redux/User';
+import {product_addtobusket} from '../../redux/UserAC';
 import './PageProduct.css';
 class Page_Product extends React.PureComponent {
 

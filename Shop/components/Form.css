@@ -1,0 +1,40 @@
+.Form{
+    width:20%;
+    float:left;
+    padding:2%;
+}
+.Form legend, .Form p {
+    font-size:18px;
+    font-weight:bold;
+    padding:10px;
+}
+.Form input[type="number"]{
+    width:50px;
+    padding:8px;
+    margin:10px;
+}
+
+.Form input[type="button"]{
+    width:100%;
+    font-family: 'Montserrat Alternates', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px;
+    margin:10px auto;
+}
+.Form input[type="button"]:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.Form .Buttons{
+    margin-top:50px;
+}
+.Form h6{
+    margin-top:20px;
+    font-size:22px;
+}
+.Form form>div, .Form fieldset{
+    margin:20px 0;
+}
+
