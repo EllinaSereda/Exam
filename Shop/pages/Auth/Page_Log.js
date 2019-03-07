@@ -3,6 +3,8 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
 import {user_create,user_logout} from '../../redux/UserAC';
+import './PageLog.css';
+
 
 class Page_Log extends React.PureComponent {
 
@@ -14,6 +16,7 @@ class Page_Log extends React.PureComponent {
       password:null,
       info:null,
       log:0,
+      error:0,
   }
   setEmail=(EO)=>{
     this.setState({email:EO.target.value});
@@ -76,34 +79,29 @@ class Page_Log extends React.PureComponent {
         else{
             this.setState({log:0})
         }
+        this.setState({error:0});
       })
-      .catch(e=>console.log(e.message));
+      .catch(e=>{
+        console.log(e.message);
+        this.setState({error:e.message});
+      });
   }
     
 
   render() {
 console.log('Page_Log render')
-    return <div className="Pageregistration">
-    {
+    return <div className="PageLog">
+     <h2>Вход</h2>
       <form method="#" action="#">
-        <div class="sing">
-        <label class="singemail" for="emaillog">Log in with email</label>
-        </div>
-        <input  class="singemail" type="email" onBlur={this.setEmail} name="emaillog" id="emaillog" placeholder="Enter email" required/>
+      {this.state.error?<div>Неверный пароль или логин</div>:null}
+        <input   type="email" onBlur={this.setEmail} name="emaillog" id="emaillog" placeholder="Введите email" required/>
         <br/>
-        <input  class="singemail" type="password" onBlur={this.setPas} name="passwordem" id="passwordem" placeholder="Enter password" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required/>
+        <input type="password" onBlur={this.setPas} name="passwordem" id="passwordem" placeholder="Введите пароль" pattern="(?=^.{8,}$)((?=.*\d)|(?=.*\W+))(?![.\n])(?=.*[A-Z])(?=.*[a-z]).*$" required/>
         <br/>
-        <input class="su" type="button" value="sing in" onClick={this.logAccount}/>
-        <div class="line"></div>
+        <input  type="button" value="Войти" onClick={this.logAccount}/>
         </form>
-    }
-    
-      </div>
-    ;
-    
-   
-    
 
+      </div>
   }
 
 }

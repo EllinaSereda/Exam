@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-
+import './StoreInfo.css'
 
 class StoreInfo extends React.PureComponent {
 
@@ -24,8 +24,8 @@ class StoreInfo extends React.PureComponent {
     let tel=this.props.info.tel.map((v,i)=><p key={i}>{v}</p>);
     return <div className="StoreInfo">
      <img src={this.props.info.img}/>
-     <div>Режим работы: {time}</div>
-     <div>Телефон: {tel}</div>
+     <div><span>Режим работы:</span> {time}</div>
+     <div><span>Телефон:</span> {tel}</div>
     </div>
 
   }

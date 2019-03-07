@@ -7,3 +7,11 @@
     display: block;
     content:"";
 }
+.CityStores label {
+    margin:10px 0;
+    display:block;
+    
+}
+.CityStores .left{
+    float:left;
+}

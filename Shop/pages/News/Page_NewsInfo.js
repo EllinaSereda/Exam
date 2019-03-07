@@ -1,7 +1,7 @@
 import React from 'react';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
-
+import './PageNewsInfo.css';
 
 class Page_NewsInfo extends React.PureComponent {
 
@@ -13,14 +13,14 @@ class Page_NewsInfo extends React.PureComponent {
   createText=(info,id)=>{
     let el=info.filter(v=>v.code==id)[0];
     let text=el.info.split(/<.*?br.*?>/ig).map ((v,i,a) =>v);
-    console.log(text);
-    for(let i=1,j=0;i<text.length;i=i+2, j++){
-      text.splice(i,0,<br key={j}/>);
+    let code=[];
+    for (let i=0;i<text.length;i++){
+      code[i]=<p>{text[i]}</p>;
     }
-    let codeNews=<div className='News' key={id}>
-    <h1>{el.name}</h1>
+    let codeNews=<div className='NewsInfo' key={id}>
+    <div class="Name"><span>{el.name}</span></div>
     <img src={el.url}/>
-    <p>{text}</p>
+    {code}
     </div>
     return codeNews;
   }
@@ -29,7 +29,8 @@ class Page_NewsInfo extends React.PureComponent {
     const id = this.props.match.params.id;
     console.log('Page_NewsInfo render');
     console.log((this.props.new.news));
-    return <div className="PageNewsInfo">Новости
+    return <div className="PageNewsInfo">
+    <h2>Новости</h2>
       {this.createText(this.props.new.news,id)}
     </div> ;
 

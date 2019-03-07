@@ -1,7 +1,10 @@
-
+body { height: 100%;} 
+html { position:relative; min-height:100%; }
 .Main {
-    font-family: 'Montserrat Alternates', sans-serif;
+    font-family: 'Ubuntu', sans-serif;
     background:white;
+    padding-bottom:300px;
+    
 }
 .Main .Head{
     text-align: center;
@@ -10,6 +13,9 @@
 }
 
 /*Шапка*/
+.Main .Adaptive{
+    display:none;
+}
 
 .Main .Namecent{
 	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
@@ -70,21 +76,21 @@
     padding:10px;
 }
 /*Меню*/
-.Main nav{
+.Main .Computer nav{
 
     text-align:center;
 	height:70px;
 	background-color:#9C3C76;
 	position:relative;
 }
-.Main nav ul li a{
+.Main .Computer nav ul li a{
     color:white;
     font-weight:bold;
     text-align: center;
     display: block;
     float:left;
     width:20%;
-    font-size:20px;
+    font-size:22px;
     box-sizing:border-box;
     padding:10px;
 }
@@ -97,13 +103,7 @@
     height: 36px;
     position: relative;
 }
-.Main .disc{
-    display: inline-block;
-    overflow: hidden;
-    line-height: 20px;
-    height: 46px;
-    position: relative;
-}
+
 .Main .roll span{
     padding:0;
     display: block;
@@ -114,41 +114,74 @@
     -moz-transition: top .5s ease;
 }
 
-.Main .hover{
+.Main .Computer .hover{
     text-shadow: #631B42 0 0 2px;
     color: #D5C3DD;
     margin-top:5px;
 }
-.Main ul.MainMenu li:hover .roll span{
+.Main .Computer ul.MainMenu li:hover .roll span{
     top: -35px;
 }
-.Main  ul.MainMenu li:hover .disc span{
-    top: -42px;
-}
 
-.Main .logo{
+
+.Main .Computer .logo{
     width:200px;
     
 }
+
+
+
+
 .Main .logoFooter{
+    box-sizing: border-box;
     float:left;
-    width:100px;
+    padding:30px;
+    width:30%;
+}
+.Main .logoFooter img{
+    float:left;
+    
+    width:200px;
 }
 .Main .FooterMenu{
     float:left;
+    box-sizing: border-box;
     width:40%;
+    padding:30px 0;
+    text-align: center;
+    font-size:18px;
+    font-weight:bold;
+    color:#631B42;
+}
+.Main footer .ComputerFooter a:hover{
+    color: #D5C3DD;
 }
 
-.Main .thirdColomn{
+.Main .ComputerFooter .thirdColomn{
     float:left;
     width:30%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+    
 }
-.Main .thirdColomn:after{
+.Main .ComputerFooter .thirdColomn img{
+    width:40px;
+    margin:20px 10px;
+}
+.Main .ComputerFooter .thirdColomn:after{
     clear:both;
     content:"";
 }
-.Main footer{
+.Main footer {
     background-color:rgba(255, 202, 220, 0.4);
+    position:absolute;
+    bottom:0px;
+    height:200px;
+    width:100%;
 }
 .Main footer:after{
     clear:both;
@@ -158,7 +191,19 @@
 .Main div.load{
     height:500px;
 }
-
+.Main footer .AdaptiveFooter{
+    display:none;
+    width:50%;
+    margin:auto;
+}
+.Main footer .AdaptiveFooter img{
+    width:40px;
+    margin:10px 30px;
+}
+.Main footer .AdaptiveFooter span{
+    float:left;
+    margin:20px;
+}
 
 /*Загрузка*/
 .Loading{
@@ -202,4 +247,94 @@
     }
   }
   
-  
+  .Main input{
+      outline: none;
+  }
+  @media screen and  (max-width:800pt) {
+    .Main .Namecent{
+        text-align:left;
+        background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") left no-repeat;
+    }
+    
+    .Main .Namecent h2 span{
+        font-size:60px;
+        font-family:"Grand Hotel", cursive;
+        letter-spacing:0.06em;
+        color:#9c3c76;
+        line-height:2;
+    }
+    .Main .Namecent h2{
+        padding-top:15px;
+        margin-left:130px;
+    }
+    
+    .Main .Namecent .r{
+        margin-left:0;
+    }
+    .Main .sideRight{
+        top:30px;
+        position:absolute;
+        right:10px;
+    }
+    .Main .sideRight img{
+        width:50px;
+    }
+  }
+  @media screen  and  (max-width:736pt) { /*от IPHONE 7 plus* горизонтально*/
+    .Main .Computer{
+        display:none;
+    }
+    .Main .Adaptive{
+        background-color:#631B42;
+        display:block;
+    }
+    .Main .Adaptive .burg{
+        padding:25px;
+    }
+    .Main .close{
+        display:none;
+    }
+    .Main .open{
+        display:block;
+
+    }
+    .Main .open a{
+        font-size:18px;
+        letter-spacing: 0.1em;
+        display:block;
+        padding:20px;
+        border:1px solid white;
+        color:white;
+    }
+    .Main .Adaptive .IconsBurg{
+        float:right;
+        padding:15px;
+        width:35px;
+    }
+    .Main .Adaptive .IconsBurg{
+        float:right;
+        padding:15px;
+        width:35px;
+    }
+    
+    .Main .ComputerFooter{
+        display:none;
+    }
+    .Main footer .AdaptiveFooter{
+        display:block;
+    }
+    .Main footer{
+        height:60px;
+        
+    }
+    
+  }
+  @media screen and (orientation:portrait) and  (max-width:736pt) {
+    .Main .open a{
+        font-size:30px;
+        padding:30px;
+        
+    }
+  }
+
+

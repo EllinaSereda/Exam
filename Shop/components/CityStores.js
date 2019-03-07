@@ -27,6 +27,7 @@ class CityStores extends React.PureComponent {
   }
 
   show=(EO)=>{
+    console.log(EO.target.value)
     this.setState({checked:EO.target.value})
   }
 
@@ -35,13 +36,13 @@ class CityStores extends React.PureComponent {
   render() {
     console.log('CityStores did Render');
     let code=this.props.info.shops.map(v=>{ //массив с адресаними магазинов
-    return <span key={v.code}><input  onChange={this.show} checked={v.code==this.state.checked?true:false} type="radio"  value={v.code} id={v.code} name='filial'/>
-    <label htmlFor={v.code}>{v.adress}</label></span> 
+    return <div key={v.code}><input  onChange={this.show} checked={v.code==this.state.checked?true:false} type="radio"  hidden value={v.code} id={v.code} name='filial'/>
+    <label htmlFor={v.code}>{v.adress}</label></div> 
     });
 
 
     return <div className="CityStores"> 
-     <div >{code}</div>
+     <div class="left">{code}</div>
      <StoreInfo info={this.props.info.shops.filter(v=>v.code==this.state.checked)[0]}/> 
     </div>  //Блок с инофрмацией о магазине: фото, режим работы
 

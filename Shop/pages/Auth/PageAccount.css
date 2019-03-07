@@ -1,0 +1,65 @@
+.PageAccount{
+    width:80%;
+    margin:auto;
+
+}
+.PageAccount h2{
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+}
+.PageAccount p{
+    font-size: 22px;
+    margin:20px 0;
+}
+.PageAccount .bold{
+    font-weight: bold;
+}
+.PageAccount .Deliveries>div{
+    padding:0 20px;
+    margin:20px 0;
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.PageAccount .Deliveries img{
+    padding:20px;
+    float:left;
+    width:70px;
+}
+
+.PageAccount .Deliveries .item {
+    border-top:1px solid black;
+    padding-top:20px;
+    padding-bottom:30px;
+    clear: both;
+}
+.PageAccount .Deliveries .item:first-child {
+    border-top:1px solid white;
+}
+.PageAccount .Deliveries .item  p{
+    font-size:18px;
+}
+    
+.PageAccount .Deliveries .item  img+p{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+
+}
+.PageAccount .LogOut{
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 30px;
+    margin:20px 0;
+    float:right;
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.PageAccount .LogOut:hover{
+    background-color:rgba(156, 60, 118, 1);
+}

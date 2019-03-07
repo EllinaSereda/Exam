@@ -1,0 +1,107 @@
+.PageBrandInfo{
+    width:80%;
+    margin:20px auto;
+}
+.PageBrandInfo .BrandInfo img.brand{
+    margin:40px;
+  
+}
+.PageBrandInfo .BrandInfo{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    padding-top:30px;
+    padding: 20px;
+    padding-bottom:90px;
+}
+
+.PageBrandInfo .BrandInfo p::first-letter{
+    font-size:20px;
+}
+.PageBrandInfo .BrandInfo>p{
+    font-size:16px;
+}
+
+.PageBrandInfo .BrandInfo .line:first-child {
+    text-align:center;
+    background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/lineb.png?alt=media&token=63c883e8-8570-4e54-b093-4e2ea3626ba8")  no-repeat,
+    url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/liner.png?alt=media&token=a19b78ba-62f2-41b4-b762-61c99adcf478")  no-repeat ;
+    background-position: center left, center right;
+    padding:10px;
+}
+.PageBrandInfo .BrandInfo .line span{
+    background-color: white;
+    text-transform: uppercase;
+    font-size: 22px;
+    text-align:center;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+}
+
+.PageBrandInfo .BrandInfo .ProdBrand{
+    margin:50px 0;
+}
+.PageBrandInfo .BrandInfo .ProdBrand div.pr {
+    display:grid;
+    width:100%;
+    margin:auto;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct img{
+    width:80%;
+    
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct{
+    width:100%;
+    padding:50px 0;
+    text-align: center;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct h3{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct p{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct .Volume{
+    font-size: 16px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct .Volume span, .PageBrandInfo .BrandInfo .CatalogProduct .Volume .Var{
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct .Price{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct .hidden{
+    display: none;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct:hover .hidden{
+    display:block;
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct:hover .hidden:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageBrandInfo .BrandInfo .ProdBrand .CatalogProduct .hidden{
+    font-family: 'Ubuntu', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 20px;
+    margin:10px auto;
+}

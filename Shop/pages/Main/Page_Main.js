@@ -20,7 +20,6 @@ class Page_Main extends React.PureComponent {
     console.log('Page_Main Render');
     console.log(this.props.slider.news);
     return <div className="PageMain">
-    <p>dfdb</p>
     <Slider info={this.props.slider.news}/>
     <BrandDesk info={this.props.brands.brandsMain}/>
     </div>;

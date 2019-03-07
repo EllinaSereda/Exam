@@ -1,0 +1,43 @@
+.NewsInfo{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+    padding:30px 0;
+    margin-bottom:30px;
+}
+.PageNewsInfo{
+    width:80%;
+    margin: auto;
+    margin-bottom: 20px;
+    
+    
+}
+.PageNewsInfo img{
+    width:90%;
+    display:block;
+    margin:20px auto;
+}
+.PageNewsInfo p{
+    padding:10px 30px;
+}
+.PageNewsInfo p::first-letter{
+    font-size:24px;
+}
+.PageNewsInfo .Name{
+    text-align:center;
+    background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/lineb.png?alt=media&token=63c883e8-8570-4e54-b093-4e2ea3626ba8")  no-repeat,
+    url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/liner.png?alt=media&token=a19b78ba-62f2-41b4-b762-61c99adcf478")  no-repeat ;
+    background-position: center left, center right;
+    padding:10px;
+}
+.PageNewsInfo .Name span{
+    background-color: white;
+    padding:5px;
+    font-size:18px;
+    font-weight:bold;
+}
+.PageNewsInfo h2{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+}

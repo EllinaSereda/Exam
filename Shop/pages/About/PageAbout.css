@@ -1,4 +1,8 @@
-
+.PageAbout{
+    width:80%;
+    margin:auto;
+    margin-bottom: 90px;
+}
 .PageAbout .City {
 float:left;
 width:20%;
@@ -7,4 +11,41 @@ width:20%;
     clear:both;
     display: block;
     content:"";
+}
+.PageAbout h2{
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+}
+.PageAbout h3{
+    text-transform: uppercase;
+    font-size: 20px;
+    font-weight:bold;
+    padding:30px 0;
+}
+.PageAbout ul{
+    list-style-type: disc;
+    list-style-position: inside;
+    
+}
+.PageAbout>div>p{
+    margin-bottom:20px;
+    font-size:18px;
+}
+.PageAbout li{
+    margin:10px 0;
+    font-size:16px;
+}
+.PageAbout label{
+    font-size: 20px;
+}
+.PageAbout input[type="radio"]:checked + label{
+    font-weight:bold;
+    color:#9C3C76;
+}
+.PageAbout span{
+    display:block;
+    margin-bottom:10px;
 }

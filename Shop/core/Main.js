@@ -22,6 +22,7 @@ class Main extends React.PureComponent {
     ready:null,
     search:null,
     searchInput:null,
+    open:0,
   }
 
   componentDidMount(){
@@ -90,6 +91,16 @@ class Main extends React.PureComponent {
     
     console.log('dsv');
   }
+  open=()=>{
+    let x=this.state.open;
+    let res;
+    x?res=0:res=1;
+    this.setState({open:res});
+  }
+  close=()=>{
+    this.setState({open:0});
+  }
+
     
 
 render() {
@@ -98,23 +109,27 @@ console.log('Main_render')
 let code=null;
 this.state.ready?
 code=<BrowserRouter>
-      <div className="Main"> <div className="Head">
-        
-        <div className="sideRight">
-          <NavLink to={this.props.user.info!==null?"/account":"/registration"} exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fuser-shape.png?alt=media&token=8f6275a5-6fda-46bc-b881-5602ac16e9e5"/></NavLink>
-          <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/></NavLink>
-        </div>
-        <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
-          <div className="Namecent">
-	          <h2 className="name"><span class="l">Eau de</span><span class="r">Parfume</span>
-            </h2>
+      <div className="Main"> 
+      <div className="Computer">
+        <div className="Head">
+          <div className="sideRight">
+            <NavLink to={this.props.user.info!==null?"/account":"/registration"} exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fuser-shape.png?alt=media&token=8f6275a5-6fda-46bc-b881-5602ac16e9e5"/></NavLink>
+            <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/></NavLink>
           </div>
-        </NavLink>
-        
+          <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
+            <div className="Namecent">
+	            <h2 className="name"><span class="l">Eau de</span><span class="r">Parfume</span></h2>
+            </div>
+          </NavLink>
        </div>
        <nav>
            <ul className="MainMenu">
-
+              <li><NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
+               <span className="roll">
+				          <span className="seen">Главная</span>
+				          <span className="hover">Главная</span>
+			          </span>
+               </NavLink></li>
                <li><NavLink to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">
                 <span className="roll">
 				          <span className="seen">Каталог</span>
@@ -133,12 +148,6 @@ code=<BrowserRouter>
 				          <span className="hover">Новости</span>
 			          </span>
                </NavLink></li>
-               <li><NavLink to="/discont" exact className="PageLink" activeClassName="ActivePageLink">
-               <span className="roll disc">
-				          <span className="seen">Дисконтная <br/>программа</span>
-				          <span className="hover">Дисконтная программа</span>
-			          </span>
-               </NavLink></li>
                <li><NavLink to="/about" exact className="PageLink" activeClassName="ActivePageLink">
                <span className="roll">
 				          <span className="seen">О нас</span>
@@ -147,25 +156,64 @@ code=<BrowserRouter>
                </NavLink></li>
            </ul>
        </nav>
+       </div>
+       
+       <div className="Adaptive">
+       <nav>
+       <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="IconsBurg" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/></NavLink>
+         <div className="burg" onClick={this.open}>b</div>
+           <ul className={"AdaptMenu " + (this.state.open?"open":"close")}>
+              <li><NavLink onClick={this.close} to="/" exact className="PageLink" activeClassName="ActivePageLink">
+             Главная
+               </NavLink></li>
+               <li><NavLink onClick={this.close} to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">
+                Каталог
+               </NavLink></li>
+               <li><NavLink onClick={this.close} to="/brands" exact className="PageLink" activeClassName="ActivePageLink">
+               Бренды
+               </NavLink></li>
+               <li><NavLink onClick={this.close} to="/news" exact className="PageLink" activeClassName="ActivePageLink">
+              Новости
+               </NavLink></li>
+               <li><NavLink onClick={this.close} to="/about" exact className="PageLink" activeClassName="ActivePageLink">
+              О нас
+               </NavLink></li>
+               <li><NavLink onClick={this.close} to={this.props.user.info!==null?"/account":"/registration"} exact className="PageLink" activeClassName="ActivePageLink">
+				          Личный кабинет
+               </NavLink></li>
+           </ul>
+       </nav>
+       </div>
        <div className="Search">
        <NavLink to={"/catalog/"+5+"/"+1+"/"+"s"} exact className="PageLink" activeClassName="ActivePageLink"><img className="SearchIcon" onClick={this.search} src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fmagnifying-glass.png?alt=media&token=a847c8db-325c-48b9-b4c2-f0b1d348ff0a"/></NavLink> 
           <input type="text" onChange={this.setSearch} placeholder="Поиск"></input>
         </div>
        <PagesRouter/>
        <footer>
-       <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img className="logoFooter" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618" alt="#"/></NavLink> 
+      <div className="ComputerFooter">
+      <div className="logoFooter">
+      <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink"><img  src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/footer.png?alt=media&token=461bc5ae-c096-4ac1-83c7-7a962079c41e" alt="#"/></NavLink> 
+      </div>
+      
        <ul className="FooterMenu">
+              <li><NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">Главная</NavLink></li>
                <li><NavLink to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
                <li><NavLink to="/brands" exact className="PageLink" activeClassName="ActivePageLink">Бренды</NavLink></li>
                <li><NavLink to="/news" exact className="PageLink" activeClassName="ActivePageLink">Новости</NavLink></li>
-               <li><NavLink to="/discont" exact className="PageLink" activeClassName="ActivePageLink">Дисконтная программа</NavLink></li>
                <li><NavLink to="/about" exact className="PageLink" activeClassName="ActivePageLink">О нас</NavLink></li>
         </ul>
         <div className="thirdColomn">
-            <p>ifoabout</p>
-            <input type="button" value="inst"/>
-            <input type="button" value="Vk"/>
-            <input type="button" value="facebook"/>
+            <p>СЛЕДИТЕ ЗА НАМИ</p>
+            <a href="#"><img alt="vk" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fvk-social-network-logo.png?alt=media&token=a689c1c1-37ee-4add-9789-597c6a6b12bb"/></a> 
+            <a href="#"><img alt="inst" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Finstagram-social-network-logo-of-photo-camera.png?alt=media&token=920e206c-c6da-4e39-8e30-5ea4126ae0d5"/></a> 
+            <a href="#"><img alt="tel" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Ftelegram.png?alt=media&token=dd5a9b05-85ba-435e-a9da-73254e551450"/></a>    
+        </div>
+        </div>
+        <div className="AdaptiveFooter">
+        <span>СЛЕДИТЕ ЗА НАМИ</span>
+            <a href="#"><img alt="vk" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fvk-social-network-logo.png?alt=media&token=a689c1c1-37ee-4add-9789-597c6a6b12bb"/></a> 
+            <a href="#"><img alt="inst" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Finstagram-social-network-logo-of-photo-camera.png?alt=media&token=920e206c-c6da-4e39-8e30-5ea4126ae0d5"/></a> 
+            <a href="#"><img alt="tel" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Ftelegram.png?alt=media&token=dd5a9b05-85ba-435e-a9da-73254e551450"/></a>
         </div>
        </footer>
        </div>

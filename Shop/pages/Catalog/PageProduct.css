@@ -1,8 +1,12 @@
 .PageProduct img{
     width:70px;
+
 }
 .PageProduct .big{
+    display:inline-block;
     width:400px;
+    margin:10px auto;
+    margin-bottom:30px;
 }
 .PageProduct .Product{
     padding:15px;
@@ -12,4 +16,217 @@
     clear:both;
     display: block;
     content:"";
+}
+.PageProduct h3{
+    font-size:24px;
+    margin:10px auto;
+}
+.PageProduct h2{
+    font-size:30px;
+    margin:10px auto;
+    margin-bottom:40px;
+}
+.PageProduct .Variant{
+    position: relative;
+    width:80%;
+    margin: auto;
+    clear:both;
+    text-align: left;
+    
+}
+.PageProduct .Variant img{
+    padding:20px;
+    float:left;
+    width:70px;
+    height:100%;
+}
+.PageProduct .Variant h5{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.PageProduct .Variant span{
+    font-size: 18px;
+    margin-top:25px;
+    margin-bottom:15px;
+
+}
+.PageProduct .Variant{
+    border-top:1px solid black;
+}
+.PageProduct .Variant:first-child{
+    border-top:1px solid white;
+}
+
+.PageProduct .order{
+    float:right;
+    margin-top:50px;
+    overflow: hidden;
+}
+.PageProduct .order{
+    float:right;
+    margin:30px 0;
+    overflow: hidden;
+}
+.PageProduct .order .Get, .PageProduct .Message {
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 30px;
+    float:right;
+}
+
+.PageProduct .order .Get{
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.PageProduct .Message{
+    margin:35px 0;
+    background-color:rgba(213, 195, 221, 0.7);
+    
+}
+.PageProduct .order .Get:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageProduct .Message:hover{
+    background-color:#81597E;
+}
+
+.PageProduct .order .buttons{
+    padding:0 10px 0 8px;
+    width:108px;
+    float:right;
+    border-bottom:2px solid #9C3C76;
+    margin:0 10px;
+}
+.PageProduct .order .buttons span{
+    font-size:30px;
+}
+
+.PageProduct .order input[type="number"]{
+    border:none;
+    outline:none;
+    width:70px;
+    font-size:18px;
+    margin:10px 5px 8px 5px;
+    text-align: center;
+} 
+
+/* Убирает стрелочки */
+.PageProduct .order input::-webkit-outer-spin-button,
+.PageProduct .order input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.PageProduct .order input[type='number'] {
+    -moz-appearance: textfield;
+}
+.PageProduct .descr{
+    margin:10px;
+}
+.PageProduct .describe{
+    width:80%;
+    text-align:left;
+    margin:80px auto;
+    
+}
+.PageProduct .describe .title{
+    font-size:24px;
+    font-weight: bold;
+    margin-right:30px;
+    padding:20px 5px;
+    color:#616668;
+    
+}
+.PageProduct .describe .active{
+    color:black;
+    border-bottom:4px solid #9C3C76;
+}
+
+.PageProduct .describe .content{
+    font-size:18px;
+}
+.PageProduct .describe .Part{
+    font-size:18px;
+    padding:20px 0;
+    border-bottom:1px solid rgba(0, 0, 0, 0.3);;
+}
+.PageProduct .describe p{
+    margin:10px 0;
+}
+.PageProduct .describe p .bold{
+    font-weight:bold;
+    font-size:20px;
+}
+
+
+.PageProduct .ProdBrand>div {
+    display:grid;
+    width:80%;
+    margin:auto;
+    grid-template-columns: repeat(3, 1fr);
+}
+.PageProduct .ProdBrand h6 {
+    font-size:24px;
+    
+}
+.PageProduct .ProdBrand .CatalogProduct img{
+    width:80%;
+    
+}
+.PageProduct .ProdBrand .CatalogProduct{
+    width:100%;
+    padding:50px 0;
+    text-align: center;
+}
+.PageProduct .ProdBrand .CatalogProduct:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+
+.PageProduct .ProdBrand .CatalogProduct h3{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.PageProduct .ProdBrand .CatalogProduct p{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageProduct .ProdBrand .CatalogProduct .Volume{
+    font-size: 16px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageProduct .ProdBrand .CatalogProduct .Volume span, .PageProduct .CatalogProduct .Volume .Var{
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+}
+.PageProduct .ProdBrand .CatalogProduct .Price{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+.PageProduct .ProdBrand .CatalogProduct .hidden{
+    display: none;
+}
+.PageProduct .ProdBrand .CatalogProduct:hover .hidden{
+    display:block;
+}
+.PageProduct .ProdBrand .CatalogProduct:hover .hidden:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageProduct .ProdBrand .CatalogProduct .hidden{
+    font-family: 'Ubuntu', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 20px;
+    margin:10px auto;
 }

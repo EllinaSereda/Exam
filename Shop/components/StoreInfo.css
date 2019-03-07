@@ -1,0 +1,14 @@
+
+.StoreInfo div{
+    font-size:18px;
+    margin:20px 0;
+}
+.StoreInfo div>span{
+    font-weight:bold;
+    font-size:20px;
+    
+}
+.StoreInfo img{
+    margin:0 30px;
+    width:500px;
+}

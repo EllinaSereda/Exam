@@ -20,3 +20,86 @@
     width:75%;
     grid-template-columns: repeat(3, 1fr);
 }
+.PageCatalog .Show{
+    float:right;
+    margin:20px;
+    margin-right:40px;
+
+}
+.PageCatalog .Show span, .PageCatalog .Pages span{
+    padding:0 5px;
+    font-size:18px;
+    color:#631B42;
+}
+.PageCatalog .Show span.active, .PageCatalog .Pages span.active{
+    font-weight:bold;
+    border-bottom: 1px dashed #631B42;
+
+}
+.PageCatalog select{
+    float:right;
+    margin:20px;
+    border:none;
+    background-color:white;
+    padding: 10px;
+    font-size:18px;
+    outline:none;
+    box-shadow: none;
+}
+.PageCatalog .Pages{
+    font-size:20px;
+    width:75%;
+    float:right;
+    text-align: center;
+    margin:30px 0;
+}
+
+.PageCatalog .Pages span{
+    font-size:20px;
+    
+}
+.PageCatalog .Product h3{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.PageCatalog .Product p{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageCatalog .Product .Volume{
+    font-size: 16px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.PageCatalog .Product .Volume span, .PageCatalog .Product .Volume .Var{
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+}
+.PageCatalog .Product .Price{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+.PageCatalog .Product .hidden{
+    display: none;
+}
+.PageCatalog .Product:hover .hidden{
+    display:block;
+}
+.PageCatalog .Product:hover .hidden:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageCatalog .Product .hidden{
+    font-family: 'Ubuntu', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 20px;
+    margin:10px auto;
+}

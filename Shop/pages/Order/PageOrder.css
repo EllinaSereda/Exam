@@ -1,0 +1,120 @@
+.PageOrder{
+    width: 80%;
+    margin:20px auto;
+}
+.PageOrder h1{
+    text-transform: uppercase;
+    font-size: 24px;
+    text-align: center;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+}
+.PageOrder .Variant{
+    position: relative;
+    height:100%;
+    padding:10px;
+    margin: auto;
+    clear:both;
+    text-align: left;
+    
+}
+
+.PageOrder .Variant img{
+    float:left;
+    width:70px;
+    padding:10px;
+  
+}
+.PageOrder .Variant h5{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.PageOrder .Prod{
+    border-top:1px solid black;
+    margin-top:20px;
+    margin-bottom:50px;
+}
+.PageOrder h1+.Prod{
+    border-top:1px solid white;
+    margin-top:20px;
+    margin-bottom:50px;
+}
+
+
+.PageOrder .order{
+    float:right;
+    margin-top:50px;
+    overflow: hidden;
+}
+.PageOrder .order{
+    float:right;
+    margin:30px 0;
+    overflow: hidden;
+}
+.PageOrder .order .Delete, .PageOrder .Message, .PageOrder .MakeOrder {
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 30px;
+}
+.PageOrder .order .Delete, .PageOrder .Message {
+    float:right;
+}
+.PageOrder .MakeOrder{
+    margin:100px auto 20px;
+    clear:both;
+    display:block;
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.PageOrder .MakeOrder:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageOrder .order .Delete{
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.PageOrder .Message{
+    margin:35px 0;
+    background-color:rgba(213, 195, 221, 0.7);
+    
+}
+.PageOrder .order .Delete:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.PageOrder .Message:hover{
+    background-color:#81597E;
+}
+
+.PageOrder .order .buttons{
+    padding:0 10px 0 8px;
+    width:108px;
+    float:right;
+    border-bottom:2px solid #9C3C76;
+    margin:0 10px;
+}
+.PageOrder .order .buttons span{
+    font-size:30px;
+}
+
+.PageOrder .order input[type="number"]{
+    border:none;
+    outline:none;
+    width:70px;
+    font-size:18px;
+    margin:10px 5px 8px 5px;
+    text-align: center;
+} 
+
+/* Убирает стрелочки */
+.PageOrder .order input::-webkit-outer-spin-button,
+.PageOrder .order input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.PageOrder .order input[type='number'] {
+    -moz-appearance: textfield;
+}
