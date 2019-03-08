@@ -1,6 +1,7 @@
 .CityStores{
     float:right;
     width:80%;
+   
 }
 .CityStores:after{
     clear:both;
@@ -10,8 +11,19 @@
 .CityStores label {
     margin:10px 0;
     display:block;
+    font-size:18px;
     
 }
 .CityStores .left{
     float:left;
 }
+@media screen and (orientation:portrait) and  (max-width:736pt) {
+    .CityStores{
+        margin-top:50px;
+        width:100%;
+        
+    }
+    .CityStores label {
+        font-size:30px;
+    }
+  }

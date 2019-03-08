@@ -7,7 +7,15 @@ import './PageBrandInfo.css';
 class Page_BrandInfo extends React.PureComponent {
 
   static propTypes = {
-    
+    brands:PropTypes.shape(
+      {
+        brands:PropTypes.array,
+        brandsMain:PropTypes.array,
+      }),
+    products:PropTypes.shape({
+        products:PropTypes.array,
+        search:PropTypes.array,
+      }),
   };
   state={
       info:null,

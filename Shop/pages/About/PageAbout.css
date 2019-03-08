@@ -49,3 +49,12 @@ width:20%;
     display:block;
     margin-bottom:10px;
 }
+@media screen and (orientation:portrait) and  (max-width:736pt) {
+    .PageAbout{
+        width:90%;
+        
+    }
+    .PageAbout label {
+        font-size:30px;
+    }
+  }

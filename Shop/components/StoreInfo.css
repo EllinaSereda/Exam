@@ -12,3 +12,12 @@
     margin:0 30px;
     width:500px;
 }
+@media screen and (orientation:portrait) and  (max-width:736pt) {
+    .StoreInfo div{
+        font-size:30px;
+    }
+    .StoreInfo div>span{
+        font-size:35px;
+        
+    }
+  }

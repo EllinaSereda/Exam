@@ -19,7 +19,9 @@
     text-align: left;
     
 }
-
+.PageOrder .adapt{
+    display:none;
+}
 .PageOrder .Variant img{
     float:left;
     width:70px;
@@ -34,23 +36,25 @@
     margin-bottom:15px;
 }
 .PageOrder .Prod{
+    height:110px;
     border-top:1px solid black;
-    margin-top:20px;
-    margin-bottom:50px;
+}
+
+.PageOrder .del{
+    opacity: 0;
+    height:0px;
+    transition-duration: 300ms;
+    transition-property: height;
+}
+.PageOrder .del .Variant{ 
+    display:none;
 }
 .PageOrder h1+.Prod{
     border-top:1px solid white;
-    margin-top:20px;
-    margin-bottom:50px;
 }
 
 
-.PageOrder .order{
-    float:right;
-    margin-top:50px;
-    overflow: hidden;
-}
-.PageOrder .order{
+.PageOrder .comp .order{
     float:right;
     margin:30px 0;
     overflow: hidden;
@@ -62,9 +66,17 @@
     font-size:18px;
     padding:10px 30px;
 }
-.PageOrder .order .Delete, .PageOrder .Message {
+.PageOrder  .Delete, .PageOrder  .Message {
     float:right;
 }
+.PageOrder .adapt .Delete, .PageOrder .adapt .Message {
+    font-size:35px;
+    border-radius: 15px;
+    width:250px;
+    padding:20px 0;
+    margin-right:30px;
+}
+
 .PageOrder .MakeOrder{
     margin:100px auto 20px;
     clear:both;
@@ -82,31 +94,44 @@
     background-color:rgba(213, 195, 221, 0.7);
     
 }
-.PageOrder .order .Delete:hover{
+.PageOrder .comp .Delete:hover{
     background-color:rgba(156, 60, 118, 1);
 }
-.PageOrder .Message:hover{
+.PageOrder .comp .Message:hover{
     background-color:#81597E;
 }
-
-.PageOrder .order .buttons{
-    padding:0 10px 0 8px;
-    width:108px;
+.PageOrder  .comp .buttons {
     float:right;
-    border-bottom:2px solid #9C3C76;
     margin:0 10px;
+}
+.PageOrder  .adapt .buttons {
+    margin:auto;
+    padding:0 20px;
+    width:240px;
+}
+
+.PageOrder .buttons{
+    padding:0 10px 0 10px;
+    border-bottom:2px solid #9C3C76;
+
 }
 .PageOrder .order .buttons span{
     font-size:30px;
 }
-
 .PageOrder .order input[type="number"]{
     border:none;
     outline:none;
+    text-align: center;
+} 
+.PageOrder .comp input[type="number"]{
     width:70px;
     font-size:18px;
     margin:10px 5px 8px 5px;
-    text-align: center;
+} 
+.PageOrder .adapt input[type="number"]{
+    width:160px;
+    font-size:30px;
+    margin:20px 10px;
 } 
 
 /* Убирает стрелочки */
@@ -117,4 +142,64 @@
 
 .PageOrder .order input[type='number'] {
     -moz-appearance: textfield;
+}
+@media screen  and  (max-width:736pt) {
+    .PageOrder{
+        width:100%;
+    }
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageOrder .MakeOrder{
+        position:absolute;
+        bottom:60px;
+        margin:0;
+        font-size:35px;
+        border-radius: 15px;
+        width:100%;
+        padding:40px 0;
+    }
+    .PageOrder .comp {
+        display:none;
+    }
+    .PageOrder .adapt {
+        display:block;
+        
+    }
+    .PageOrder .Prod {
+        height:360px;
+        
+    }
+    
+    .PageOrder .Variant p{
+        margin-top:50px;
+        font-size:30px;
+    }
+    .PageOrder .Variant{
+        height:300px;
+    }
+    
+    .PageOrder .Variant img{
+        width:300px;
+
+    }
+    .PageOrder .del{
+        opacity: 0;
+        height:0px;
+        transition-duration: 300ms;
+        transition-property: height;
+    }
+    .PageOrder .del .Variant{ 
+        display:none;
+    }
+    .PageOrder .adapt input[type="number"]{
+        box-sizing:border-box;
+        width:80%;
+        font-size:30px;
+
+    } 
+    .PageOrder .order .buttons span{
+        font-size:30px;
+        box-sizing:border-box;
+        width:10%;
+    }
 }

@@ -9,7 +9,21 @@ import { sex_change, reset_create, brandSort_change,minPrice_change,maxPrice_cha
 class Form extends React.PureComponent {
 
   static propTypes = {
-  
+    savedFilter:PropTypes.shape({
+      brands: PropTypes.array,
+      minprice: PropTypes.number,
+      minvolume: PropTypes.number,
+      maxvolume: PropTypes.number,
+      maxprice: PropTypes.number,
+      savedBrands:PropTypes.array,
+      sminprice: PropTypes.number,
+      sminvolume: PropTypes.number,
+      smaxvolume: PropTypes.number,
+      smaxprice: PropTypes.number,
+      sex:PropTypes.array,
+      ssex:PropTypes.array,
+      reset: PropTypes.number,
+    })
   };
 
   state={
@@ -66,6 +80,7 @@ code=<form>
     <p>Цена</p>             
     <label htmlFor='minPr'>От</label><input id='minPr' onBlur={this.setMinPr} type='number'/>
     <label htmlFor='maxPr'>До</label><input id='maxPr' onBlur={this.setMaxPr} type='number'/>
+    руб.
     </div>
     <hr/> 
     <fieldset>      
@@ -73,7 +88,7 @@ code=<form>
       {this.props.brands.map((v,i)=>
       <div key={i}>
         <input type="checkbox" checked={this.props.savedFilter.brands.some(x=>x==v)} name="brand" id={v} value={v} onChange={this.setBrands}/>
-        <label htmlFor={v}>{v}</label>
+        <label htmlFor={v}>{v}</label> 
       </div>)} 
     </fieldset> 
     <hr/> 
@@ -95,7 +110,7 @@ code=<form>
     <hr/>
     <p>Объем</p>             
     <label htmlFor='minVol'>От</label><input id='minVol' onChange={this.setMinVol} type='number'/>
-    <label htmlFor='maxVol'>До</label><input id='maxVol' onChange={this.setMaxVol} type='number'/>
+    <label htmlFor='maxVol'>До</label><input id='maxVol' onChange={this.setMaxVol} type='number'/> мл.
     <div className="Buttons">
       <input type="button" onClick={this.saveChanges} value="Показать" /> 
       <input type="button" onClick={this.resetChanges} value="Сбросить фильтры" />

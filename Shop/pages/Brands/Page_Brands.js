@@ -8,7 +8,11 @@ import {connect} from 'react-redux';
 class Page_Brands extends React.PureComponent {
 
   static propTypes = {
-    
+    brands:PropTypes.shape(
+      {
+        brands:PropTypes.array,
+        brandsMain:PropTypes.array,
+      }),
   };
   state={
     

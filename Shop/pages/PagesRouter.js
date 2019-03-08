@@ -24,7 +24,7 @@ class PagesRouter extends React.Component {
 <Switch>
   <Route path="/" exact component={Page_Main} />
 
-  <Route path="/catalog/product/:id" exact component={Page_Product} />
+  <Route path="/product/:id" exact component={Page_Product} />
   <Route exact path="/catalog/:amount/:page" exact component={Page_Catalog} />
   <Route exact path="/catalog/:amount/:page/:s" exact component={Page_Catalog} />
   <Route exact path="/catalog" exact component={Page_Catalog} />

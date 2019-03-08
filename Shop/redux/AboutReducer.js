@@ -2,7 +2,7 @@ import { ABOUT_CREATE } from './AboutAC';
 
 const initState={
 
-  about: [],
+  about: {},
 
 }
 

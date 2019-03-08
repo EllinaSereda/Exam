@@ -6,8 +6,11 @@ import CityStores from '../../components/CityStores';
 class Page_About extends React.PureComponent {
 
   static propTypes = {
-    
+    about:PropTypes.shape({
+      about:PropTypes.ob,
+    }),
   };
+
   state={
     checked:0,  //выбранный город
   }

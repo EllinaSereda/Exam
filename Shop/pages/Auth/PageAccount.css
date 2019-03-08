@@ -63,3 +63,30 @@
 .PageAccount .LogOut:hover{
     background-color:rgba(156, 60, 118, 1);
 }
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageAccount {
+        box-sizing: border-box;
+        width:100%;
+        padding:10px;
+    }
+    .PageAccount .LogOut{
+        border-radius: 20px;
+        font-size:35px;
+        padding:30px 60px;
+    }
+    .PageAccount .Deliveries img{
+    padding:40px;
+    float:left;
+    width:180px;
+    }
+    .PageAccount h2{
+        font-size: 40px;
+    }
+    .PageAccount p{
+        font-size: 35px;
+    }
+    .PageAccount .Deliveries .item  p{
+        font-size: 12px;
+    }
+
+}

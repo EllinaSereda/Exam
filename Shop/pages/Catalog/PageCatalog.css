@@ -1,25 +1,10 @@
-.PageCatalog img{
-    width:80%;
-    
-}
-.PageCatalog .Product{
-    width:100%;
-    padding:50px 0;
-    text-align: center;
-}
-.PageCatalog .Product:hover{
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
+
 .PageCatalog:after{
     clear:both;
     display: block;
     content:"";
 }
-.PageCatalog .Prod {
-    display:grid;
-    width:75%;
-    grid-template-columns: repeat(3, 1fr);
-}
+
 .PageCatalog .Show{
     float:right;
     margin:20px;
@@ -58,48 +43,31 @@
     font-size:20px;
     
 }
-.PageCatalog .Product h3{
-    font-size: 22px;
-    color:rgb(84, 84, 84);
-    color:rgba(0, 0, 0, 0.3);
-    margin-top:25px;
-    margin-bottom:15px;
+
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+
+    .PageCatalog select{
+        float:none;
+        margin:10px;
+        padding: 10px;
+        font-size:30px;
+    }
+    .PageCatalog .Show span, .PageCatalog .Pages span{
+        padding:0 5px;
+        font-size:35px;
+    }
+    .PageCatalog .Pages{
+        width:100%;
+        text-align: center;
+        margin:30px 0;
+    }
+
+
 }
-.PageCatalog .Product p{
-    font-size: 20px;
-    padding:0 15px;
-    margin-bottom:30px;
-}
-.PageCatalog .Product .Volume{
-    font-size: 16px;
-    padding:0 15px;
-    margin-bottom:30px;
-}
-.PageCatalog .Product .Volume span, .PageCatalog .Product .Volume .Var{
-    color:rgb(84, 84, 84);
-    color:rgba(0, 0, 0, 0.3);
-}
-.PageCatalog .Product .Price{
-    font-size: 20px;
-    padding:0 15px;
-    margin-bottom:30px;
-    font-weight:bold;
-}
-.PageCatalog .Product .hidden{
-    display: none;
-}
-.PageCatalog .Product:hover .hidden{
-    display:block;
-}
-.PageCatalog .Product:hover .hidden:hover{
-    background-color:rgba(156, 60, 118, 1);
-}
-.PageCatalog .Product .hidden{
-    font-family: 'Ubuntu', sans-serif;
-    background-color:rgba(156, 60, 118, 0.7);
-    color:white;
-    border-radius:10px;
-    font-size:18px;
-    padding:10px 20px;
-    margin:10px auto;
+@media screen and  (max-width:650pt) {
+  
+    .PageCatalog .Pages{
+        width:100%;
+        text-align: center;
+    }
 }

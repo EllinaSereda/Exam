@@ -1,0 +1,396 @@
+body { height: 100%;} 
+html { position:relative; min-height:100%; }
+.MainComponent {
+    font-family: 'Ubuntu', sans-serif;
+    background:white;
+    padding-bottom:300px;
+    
+}
+.MainComponent .Head{
+    text-align: center;
+    margin:0 auto;
+    
+}
+.MainComponent input{
+    outline: none;
+}
+/*Шапка*/
+
+.MainComponent .Namecent{
+	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+.MainComponent .Namecent h2 span{
+	font-size:85px;
+	font-family:"Grand Hotel", cursive;
+	letter-spacing:0.12em;
+	color:#9c3c76;
+	line-height:2;
+}
+.MainComponent .Namecent h2{
+	padding-top:15px;
+}
+
+.MainComponent .Namecent .r{
+	margin-left:200px;
+}
+.MainComponent .sideRight{
+    top:65px;
+    position:absolute;
+    right:10px;
+}
+.MainComponent .Search{
+    clear:both;
+    width:100%;
+    height:70px;
+    background-color:rgba(255, 202, 220, 0.4);
+}
+.MainComponent .Search input{
+   width:80%;
+   height:20px;
+   opacity: 0.5;
+   background-color:white;
+   border:none;
+   margin:15px;
+   padding:10px;
+   font-size:20px;
+   border-radius:15px;
+   outline: none;
+}
+.MainComponent .Search input:hover, .MainComponent .Search input:active {
+    opacity: 1;
+    outline: none;
+ }
+.MainComponent .SearchIcon{
+    width:40px;
+    padding:15px;
+    float:right;
+    right:40px;
+}
+
+.MainComponent .Icons{
+    width:60px;
+    padding:10px;
+}
+/*Меню*/
+.MainComponent .Computer nav{
+
+    text-align:center;
+	height:70px;
+	background-color:#9C3C76;
+	position:relative;
+}
+.MainComponent .Computer nav ul li a{
+    color:white;
+    font-weight:bold;
+    text-align: center;
+    display: block;
+    float:left;
+    width:20%;
+    font-size:22px;
+    box-sizing:border-box;
+    padding:10px;
+}
+
+
+.MainComponent .roll{
+    display: inline-block;
+    overflow: hidden;
+    line-height: 36px;
+    height: 36px;
+    position: relative;
+}
+
+.MainComponent .roll span{
+    padding:0;
+    display: block;
+    position: relative;
+    top: 7px;
+    transition: top .5s ease;
+    -webkit-transition: top .5s ease;
+    -moz-transition: top .5s ease;
+}
+
+.MainComponent .Computer .hover{
+    text-shadow: #631B42 0 0 2px;
+    color: #D5C3DD;
+    margin-top:5px;
+}
+.MainComponent .Computer ul.MainComponentMenu li:hover .roll span{
+    top: -35px;
+}
+
+
+.MainComponent .Computer .logo{
+    width:200px;
+    
+}
+
+.MainComponent .logoFooter{
+    box-sizing: border-box;
+    float:left;
+    padding:30px;
+    width:30%;
+}
+.MainComponent .logoFooter img{
+    float:left;
+    
+    width:200px;
+}
+.MainComponent .FooterMenu{
+    float:left;
+    box-sizing: border-box;
+    width:40%;
+    padding:30px 0;
+    text-align: center;
+    font-size:18px;
+    font-weight:bold;
+    color:#631B42;
+}
+.MainComponent footer .ComputerFooter a:hover{
+    color: #D5C3DD;
+}
+
+.MainComponent .ComputerFooter .thirdColomn{
+    float:left;
+    width:30%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+    
+}
+.MainComponent .ComputerFooter .thirdColomn img{
+    width:40px;
+    margin:20px 10px;
+}
+.MainComponent .ComputerFooter .thirdColomn:after{
+    clear:both;
+    content:"";
+}
+.MainComponent footer {
+    background-color:rgba(255, 202, 220, 0.4);
+    position:absolute;
+    bottom:0px;
+    height:200px;
+    width:100%;
+}
+.MainComponent footer:after{
+    clear:both;
+    display: block;
+    content:"";
+}
+.MainComponent div.load{
+    height:500px;
+}
+.MainComponent footer .AdaptiveFooter{
+    display:none;
+    margin:auto;
+}
+
+
+
+
+.MainComponent .open a{
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: top 1s ease-out 0.5s;
+    -o-transition: top 1s ease-out 0.5s;
+    transition: top 1s ease-out 0.5s;
+}
+
+
+.MainComponent .Adaptive{
+    display:none;
+}
+.MainComponent .Adaptive ul a{
+    text-transform: uppercase;
+    background-color:rgba(156, 60, 118, 0.6);
+    
+}
+.MainComponent .Adaptive .open a{
+    font-size:18px;
+    letter-spacing: 0.1em;
+    display:block;
+    padding:20px;
+    border-bottom:1px solid rgba(156, 60, 118, 0.3);
+    color:white;
+}
+.MainComponent .Adaptive .burg{
+    background-color:rgba(156, 60, 118, 1);
+}
+.MainComponent .Adaptive .burg img{
+   padding:10px;
+    width:70px;
+}
+.MainComponent footer .AdaptiveFooter img{
+    width:40px;
+    margin:10px 30px;
+}
+.MainComponent footer .AdaptiveFooter span{
+    float:left;
+    margin:20px 40px;
+    margin-right:120px;
+}
+
+
+/*Загрузка*/
+.Loading{
+    margin:200px auto;
+    width:65px;
+}
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 6px;
+    width: 13px;
+    background: black;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 6px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 26px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 45px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 6px;
+      height: 51px;
+    }
+    50%, 100% {
+      top: 19px;
+      height: 26px;
+    }
+  }
+  
+
+  
+  @media screen and  (max-width:800pt) {
+    .MainComponent .Namecent{
+        text-align:left;
+        background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") left no-repeat;
+    }
+    
+    .MainComponent .Namecent h2 span{
+        font-size:60px;
+        font-family:"Grand Hotel", cursive;
+        letter-spacing:0.06em;
+        color:#9c3c76;
+        line-height:2;
+    }
+    .MainComponent .Namecent h2{
+        padding-top:15px;
+        margin-left:130px;
+    }
+    
+    .MainComponent .Namecent .r{
+        margin-left:0;
+    }
+    .MainComponent .sideRight{
+        top:30px;
+        position:absolute;
+        right:10px;
+    }
+    .MainComponent .sideRight img{
+        width:50px;
+    }
+  }
+  @media screen  and  (max-width:736pt) { /*от IPHONE 7 plus* горизонтально*/
+    
+    .MainComponent .Computer{
+        display:none;
+    }
+    @keyframes appear {
+        0% {
+          display: none;
+        }
+        100% {
+          display:block;
+        }
+      }
+    .MainComponent .Adaptive{
+        display:block;
+        
+    }
+    
+    .MainComponent{
+        padding-bottom: 100px;
+    }
+   
+    .MainComponent .close{
+        display:none;
+    }
+    .MainComponent .open{
+        display:block;
+
+    }
+    
+ 
+    .MainComponent .Adaptive .IconsBurg{
+        float:right;
+        padding:10px;
+        width:70px;
+    }
+ 
+    
+    .MainComponent .ComputerFooter{
+        display:none;
+    }
+    .MainComponent footer .AdaptiveFooter{
+        display:block;
+    }
+    .MainComponent footer{
+        height:60px;
+        
+    }
+    
+  }
+
+
+  @media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .MainComponent .Adaptive .open a{
+        font-size:40px;
+        padding:35px;
+        
+    }
+    .MainComponent .Search{
+        height:100px;
+    }
+    .MainComponent .Search input{
+        box-sizing:border-box;
+        width:100%;
+        margin:20px 0;
+        padding:15px 30px;
+        font-size: 30px;
+        height:60px;
+        background-color:transparent;
+    }
+    .MainComponent .SearchIcon{
+        display:none;
+    }
+    .MainComponent .Adaptive .burg{
+        padding:30px;
+    }
+    .MainComponent .Adaptive .IconsBurg{
+        padding:40px;
+    }
+  }
+
+
+ 

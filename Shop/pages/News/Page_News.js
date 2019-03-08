@@ -8,7 +8,9 @@ import './PageNews.css';
 class Page_News extends React.PureComponent {
 
   static propTypes = {
-    
+    news:PropTypes.shape({
+      news:PropTypes.array,
+    }),
   };
   
 
@@ -42,10 +44,10 @@ class Page_News extends React.PureComponent {
       console.log(v);
     return <div className='News' key={v.code}>
     <div class="Name"><span>{v.name}</span></div>
-    <NavLink key={v.code} to={"/news/"+v.code} exact className="PageLink" activeClassName="ActivePageLink">
+    <NavLink to={"/news/"+v.code} exact className="PageLink" activeClassName="ActivePageLink">
     <img src={v.url}/></NavLink> 
     <p>{this.createText(v.info)}</p>
-    <NavLink key={v.code} to={"/news/"+v.code} exact className="PageLink" activeClassName="ActivePageLink"><input type="button" value="Читать"/></NavLink>
+    <NavLink to={"/news/"+v.code} exact className="PageLink" activeClassName="ActivePageLink"><input type="button" value="Читать"/></NavLink>
     
     </div>})}
     </div> ;

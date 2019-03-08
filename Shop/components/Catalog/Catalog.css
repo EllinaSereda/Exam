@@ -1,0 +1,81 @@
+.Catalog img{
+    width:80%;
+    
+}
+.Catalog .Product{
+    width:100%;
+    padding:50px 0;
+    text-align: center;
+}
+.Catalog .Product:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.Catalog:after{
+    clear:both;
+    display: block;
+    content:"";
+}
+.Catalog {
+    display:grid;
+    width:75%;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.Catalog .Product h3{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.Catalog .Product p{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.Catalog .Product .Volume{
+    font-size: 16px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.Catalog  .Product .Volume span, .Catalog  .Product .Volume .Var{
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+}
+.Catalog .Product .Price{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+.Catalog  .Product .hidden{
+    display: none;
+}
+.Catalog  .Product:hover .hidden{
+    display:block;
+}
+.Catalog  .Product:hover .hidden:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.Catalog  .Product .hidden{
+    font-family: 'Ubuntu', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 20px;
+    margin:10px auto;
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .Catalog  {
+        width:100%;
+    }
+
+
+}
+@media screen and  (max-width:650pt) {
+    .Catalog {
+        width:100%;
+    }
+}

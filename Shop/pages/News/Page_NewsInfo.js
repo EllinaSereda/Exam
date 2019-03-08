@@ -6,8 +6,11 @@ import './PageNewsInfo.css';
 class Page_NewsInfo extends React.PureComponent {
 
   static propTypes = {
-    
-  };
+    new:PropTypes.shape({
+      news:PropTypes.array,
+    }),
+  }
+
   state={
   }
   createText=(info,id)=>{

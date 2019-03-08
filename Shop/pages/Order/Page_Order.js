@@ -9,18 +9,34 @@ import './PageOrder.css'
 class Page_Order extends React.PureComponent {
 
   static propTypes = {
-    
-  };
+    products:PropTypes.shape({
+      products:PropTypes.array,
+      search:PropTypes.array,
+    }),
+  user:PropTypes.shape({
+      info:PropTypes.object,
+    }),
+  } 
+
   state={
     info:null,
     bigImg:0,
     content:0,
     upd:0,
+    del:null,
+  }
+  
+
+  animateDelete=(EO)=>{
+    this.setState({del:EO.target.id});
+    setTimeout(this.deleteProd,300);
   }
   deleteProd=(EO)=>{
-    let prod=EO.target.id.split(' ');
+    let prod=this.state.del.split(' ');
+    this.setState({del:prod});
     if (this.props.user.info!==null){
-      let order=this.props.user.info.order;
+        console.log("Work")
+        let order=this.props.user.info.order;
       delete order[prod[0]][prod[1]];
       let i=0;
       for (let key in order[prod[0]]){
@@ -30,13 +46,13 @@ class Page_Order extends React.PureComponent {
       if (i==0){
         delete order[prod[0]];
       }
-      /*console.log(this.props.user.info.order);
-      this.props.dispatch(product_delete(prod));
-      console.log(this.props.user.info.order);*/
+ 
       this.props.dispatch(product_update(order));
       firebase.firestore().doc('Users/Users').set({
         [this.props.user.info.email]:{...this.props.user.info,order:order},
       })
+      
+      
     }
     else if(localStorage.parfumShop_busket){
       let storage=JSON.parse(localStorage.parfumShop_busket);
@@ -52,6 +68,7 @@ class Page_Order extends React.PureComponent {
         this.setState((prevState,CurrentState)=>{return {upd:prevState.upd+1}});
     }
   }
+
     //  обработчик кнопки -
     dec=(EO)=>{   
       let newState=this.props.user.info.order;
@@ -123,13 +140,13 @@ class Page_Order extends React.PureComponent {
 
           prod=order.map((v)=>{
             prod.key=key+' '+v.vol;
-            return <div key={prod.key} className="Prod">
+            return <div key={prod.key} className={"Prod"+(this.state.del==prod.key?" del":"") }>
               {prod.stock.filter(y=>y.vol==Number(v.vol)).map((x,i)=>{
                 return <div className="Variant">
                 {(x.in!=0)?
-                  <div className="order">
-                  <input className="Delete" type="button" id={prod.key} onClick={this.deleteProd} value="Удалить"/>
-                    <div class="buttons">
+                  <div className="order comp">
+                  <input className="Delete" type="button" id={prod.key} onClick={this.animateDelete} value="Удалить"/>
+                    <div className="buttons">
                       <span id={prod.key} onClick={this.dec}>-</span>
                       <input type="number" value={v.amount} min={1} id={prod.key} onChange={this.setAmount}/>
                       <span id={prod.key} onClick={this.inc}>+</span>
@@ -140,6 +157,17 @@ class Page_Order extends React.PureComponent {
               <img src={prod.img[0]}/>
               <p>{prod.name}</p>
               <p>{v.vol} мл {prod.stock.filter(x=>x.vol==v.vol)[0].price}</p>
+              {(x.in!=0)?
+               <div className="order adapt">
+               <input className="Delete" type="button" id={prod.key} onClick={this.animateDelete} value="Удалить"/>
+                 <div className="buttons">
+                   <span id={prod.key} onClick={this.dec}>-</span>
+                   <input type="number" value={v.amount} min={1} id={prod.key} onChange={this.setAmount}/>
+                   <span id={prod.key} onClick={this.inc}>+</span>
+                 </div>
+               </div>
+                :<input type="button" className="Message  adapt" value="Сообщить о наличии"/>
+              } 
               </div>})}
           </div>
           })
@@ -162,19 +190,30 @@ class Page_Order extends React.PureComponent {
               console.log(x.in);
               return <div className="Variant">
               {(x.in!=0)?
-               <div className="order">
+               <div className="order comp">
                <input className="Delete" type="button" id={prod.key} onClick={this.deleteProd} value="Удалить"/>
-                 <div class="buttons">
+                 <div className="buttons">
                    <span id={prod.key} onClick={this.dec}>-</span>
                    <input type="number" value={v.amount} min={1} id={prod.key} onChange={this.setAmount}/>
                    <span id={prod.key} onClick={this.inc}>+</span>
                  </div>
                </div>
-                :<input type="button" className="Message" value="Сообщить о наличии"/>
+                :<input type="button" className="Message  comp" value="Сообщить о наличии"/>
               } 
               <img src={prod.img[0]}/>
               <p>{prod.name}</p>
               <p>{v.vol} мл {prod.stock.filter(x=>x.vol==v.vol)[0].price}</p>
+              {(x.in!=0)?
+               <div className="order adapt">
+               <input className="Delete" type="button" id={prod.key} onClick={this.deleteProd} value="Удалить"/>
+                 <div className="buttons">
+                   <span id={prod.key} onClick={this.dec}>-</span>
+                   <input type="number" value={v.amount} min={1} id={prod.key} onChange={this.setAmount}/>
+                   <span id={prod.key} onClick={this.inc}>+</span>
+                 </div>
+               </div>
+                :<input type="button" className="Message  adapt" value="Сообщить о наличии"/>
+              } 
               </div>})}
           </div>
           })
@@ -213,7 +252,6 @@ class Page_Order extends React.PureComponent {
 
 const mapStateToProps = function (state) {
   return {
-    brands: state.brands,  // Магазины
     products: state.products,   //Товары
     user: state.user, //Юзер
   };

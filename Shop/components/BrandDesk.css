@@ -7,3 +7,9 @@
     width:14%;
     margin:10px;
 }
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .BrandDesk img {
+        width:25%;
+        margin:10px;
+    }
+}

@@ -8,8 +8,18 @@ import './PageAccount.css';
 class Page_Account extends React.PureComponent {
 
   static propTypes = {
-    
+    products:PropTypes.shape({
+        products:PropTypes.array,
+        search:PropTypes.array,
+    }),
+    user:PropTypes.shape({
+        info:PropTypes.object,
+    }),
   };
+
+
+
+  
   state={
       email:null,
       password:null,
@@ -63,7 +73,7 @@ class Page_Account extends React.PureComponent {
             console.log(v[k][key]);
             let i=this.props.products.products.filter(y=>y.code==k)[0];
             console.log(i);
-            let itemCode=<div className="item">
+            let itemCode=<div key={i+k+key} className="item">
               <img src={i.img[0]}/>
               <p>{i.brand}</p>
               <p>{i.name}</p>
@@ -90,18 +100,17 @@ console.log(this.props.user.info.picture):null;
 let code;
 if (this.props.user.info){
   let deliv=this.createOrders();
-  code=<div className="PageAccount">
+  code=<div key="PageAccount" className="PageAccount">
   <h2>Личный кабинет</h2>
   <input className="LogOut" type="button" value="log out" onClick={this.logout}/>
 
   <p><span className="bold">Имя:</span> {this.props.user.info.name}</p>
   <p><span className="bold">Email:</span> {this.props.user.info.email}</p>
-<div className="Deliveries">
+<div key="Deliveries" className="Deliveries">
 <p className="bold">Заказы</p>
 {deliv}
 
 </div>
-
 
 </div>
 }

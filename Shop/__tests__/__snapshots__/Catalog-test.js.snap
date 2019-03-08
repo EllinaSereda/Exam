@@ -1,0 +1,58 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа Main 1`] = `
+<div
+  className="Catalog"
+>
+  <div
+    className="Product"
+  >
+    <a
+      aria-current={null}
+      className="PageLink"
+      href="/catalog/product/0"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <img
+        alt={0}
+        src="#"
+      />
+      <h3>
+        Carol
+      </h3>
+      <p>
+        Good
+      </p>
+      <div
+        class="Volume"
+      >
+        Объем, мл: 
+        <span>
+          30
+           
+        </span>
+        <div
+          class="Var"
+        >
+          1
+           варианта
+        </div>
+      </div>
+      <div
+        class="Price"
+      >
+        122
+         - 
+        122
+         руб.
+      </div>
+      <input
+        class="hidden"
+        type="button"
+        value="Выбрать"
+      />
+    </a>
+  </div>
+</div>
+`;

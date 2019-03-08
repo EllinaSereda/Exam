@@ -11,11 +11,10 @@ html { position:relative; min-height:100%; }
     margin:0 auto;
     
 }
-
-/*Шапка*/
-.Main .Adaptive{
-    display:none;
+.Main input{
+    outline: none;
 }
+/*Шапка*/
 
 .Main .Namecent{
 	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
@@ -129,9 +128,6 @@ html { position:relative; min-height:100%; }
     
 }
 
-
-
-
 .Main .logoFooter{
     box-sizing: border-box;
     float:left;
@@ -193,8 +189,42 @@ html { position:relative; min-height:100%; }
 }
 .Main footer .AdaptiveFooter{
     display:none;
-    width:50%;
     margin:auto;
+}
+
+
+
+
+.Main .open a{
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: top 1s ease-out 0.5s;
+    -o-transition: top 1s ease-out 0.5s;
+    transition: top 1s ease-out 0.5s;
+}
+
+
+.Main .Adaptive{
+    display:none;
+}
+.Main .Adaptive ul a{
+    text-transform: uppercase;
+    background-color:rgba(156, 60, 118, 0.6);
+    
+}
+.Main .Adaptive .open a{
+    font-size:18px;
+    letter-spacing: 0.1em;
+    display:block;
+    padding:20px;
+    border-bottom:1px solid rgba(156, 60, 118, 0.3);
+    color:white;
+}
+.Main .Adaptive .burg{
+    background-color:rgba(156, 60, 118, 1);
+}
+.Main .Adaptive .burg img{
+   padding:10px;
+    width:70px;
 }
 .Main footer .AdaptiveFooter img{
     width:40px;
@@ -202,8 +232,10 @@ html { position:relative; min-height:100%; }
 }
 .Main footer .AdaptiveFooter span{
     float:left;
-    margin:20px;
+    margin:20px 40px;
+    margin-right:120px;
 }
+
 
 /*Загрузка*/
 .Loading{
@@ -247,9 +279,8 @@ html { position:relative; min-height:100%; }
     }
   }
   
-  .Main input{
-      outline: none;
-  }
+
+  
   @media screen and  (max-width:800pt) {
     .Main .Namecent{
         text-align:left;
@@ -281,16 +312,27 @@ html { position:relative; min-height:100%; }
     }
   }
   @media screen  and  (max-width:736pt) { /*от IPHONE 7 plus* горизонтально*/
+    
     .Main .Computer{
         display:none;
     }
+    @keyframes appear {
+        0% {
+          display: none;
+        }
+        100% {
+          display:block;
+        }
+      }
     .Main .Adaptive{
-        background-color:#631B42;
         display:block;
+        
     }
-    .Main .Adaptive .burg{
-        padding:25px;
+    
+    .Main{
+        padding-bottom: 100px;
     }
+   
     .Main .close{
         display:none;
     }
@@ -298,24 +340,14 @@ html { position:relative; min-height:100%; }
         display:block;
 
     }
-    .Main .open a{
-        font-size:18px;
-        letter-spacing: 0.1em;
-        display:block;
-        padding:20px;
-        border:1px solid white;
-        color:white;
-    }
+    
+ 
     .Main .Adaptive .IconsBurg{
         float:right;
-        padding:15px;
-        width:35px;
+        padding:10px;
+        width:70px;
     }
-    .Main .Adaptive .IconsBurg{
-        float:right;
-        padding:15px;
-        width:35px;
-    }
+ 
     
     .Main .ComputerFooter{
         display:none;
@@ -329,12 +361,36 @@ html { position:relative; min-height:100%; }
     }
     
   }
-  @media screen and (orientation:portrait) and  (max-width:736pt) {
-    .Main .open a{
-        font-size:30px;
-        padding:30px;
+
+
+  @media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .Main .Adaptive .open a{
+        font-size:40px;
+        padding:35px;
         
+    }
+    .Main .Search{
+        height:100px;
+    }
+    .Main .Search input{
+        box-sizing:border-box;
+        width:100%;
+        margin:20px 0;
+        padding:15px 30px;
+        font-size: 30px;
+        height:60px;
+        background-color:transparent;
+    }
+    .Main .SearchIcon{
+        display:none;
+    }
+    .Main .Adaptive .burg{
+        padding:30px;
+    }
+    .Main .Adaptive .IconsBurg{
+        padding:40px;
     }
   }
 
 
+ 

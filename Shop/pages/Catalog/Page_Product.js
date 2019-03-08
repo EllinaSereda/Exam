@@ -3,13 +3,27 @@ import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import firebase from 'firebase';
 import { NavLink } from 'react-router-dom';
+import {voteEvents} from '../../events';
 import {product_addtobusket} from '../../redux/UserAC';
 import './PageProduct.css';
+import Product from '../../components/Product/Product'
 class Page_Product extends React.PureComponent {
 
   static propTypes = {
-    
+    brands:PropTypes.shape(
+      {
+        brands:PropTypes.array,
+        brandsMain:PropTypes.array,
+      }),
+    products:PropTypes.shape({
+        products:PropTypes.array,
+        search:PropTypes.array,
+      }),
+    user:PropTypes.shape({
+        info:PropTypes.object,
+      }),
   };
+  
   state={
     info:null,
     bigImg:0,
@@ -19,6 +33,7 @@ class Page_Product extends React.PureComponent {
   }
   
   componentDidMount(){
+    voteEvents.addListener('AddBusket',this.addToBusket);
     let hash={};
     console.log(this.props.products.products);
     this.props.products.products.filter(v=>v.code==this.props.match.params.id)[0].stock.forEach(v => {
@@ -26,6 +41,10 @@ class Page_Product extends React.PureComponent {
     });
     this.setState({amount:hash})
   }
+  componentWillUnmount = () => {
+    voteEvents.removeListener('AddBusket',this.addToBusket);
+  };
+
   
   
   setBigImg=(EO)=>{             
@@ -113,49 +132,15 @@ class Page_Product extends React.PureComponent {
 
     const id = Number(this.props.match.params.id);
     let product=this.props.products.products.filter(v=>v.code==id);
+
     return  <div className='PageProduct' >{product.map(v=>
       
       {
         let img=[];
         img.push(v.img.map((v,i)=><img alt={i} key={i} className='small' onClick={this.setBigImg} src={v}/>));
        
-      return <div key={v.code} className='Product'>
-        <h3>{v.brand}</h3>
-        <h2>{v.name}</h2>
-        {v.img.length>1 ?
-          <div>
-            <img key={this.state.bigImg} className='big' src={v.img.filter((v,i)=>i==this.state.bigImg)[0]}/>
-            <div>{img}</div>
-          </div> 
-          :<img className='big' src={v.img[0]}/>
-        }                                                                                                         
-        <div className="buy">
-        {         //Форма покупки товара
-          v.stock.map((x,i)=>{return <div className="Variant">
-          {(x.in!=0)?
-          <div className="order">
-            <input type="button" class="Get" id={x.vol} value="В корзину" onClick={this.addToBusket}/>
-            <div class="buttons">
-              <span id={x.vol+"-"} onClick={this.dec}>-</span>
-              <input type="number" value={this.state.amount?this.state.amount[x.vol]:"1"} min={1} id={x.vol} onChange={this.setAmount}/>
-              <span id={x.vol+"+"} onClick={this.inc}>+</span>
-            </div>
-
-          </div>
-          :<input type="button" className="Message" value="Сообщить о наличии"/>
-          }
-          <img src={v.img[0]}/>
-          <h5>{v.brand}</h5>
-          <div className="descr">
-            <span>{v.name} {x.vol} мл </span>
-            <span>{x.price} руб.</span>
-          </div>
-        
-        
-        
-          </div>}) 
-        }</div>
-      
+      return <div className='Product'>
+        <Product amount={this.state.amount} img={img} prod={v}/>
         <div className="describe">
           <div className="Part">
             <span class={this.state.content==0?"title active":"title"} id="0" onClick={this.setContent}>Описание</span>
