@@ -296,7 +296,7 @@ width:20%;
         width:90%;
         
     }
-    .PageAbout label, .PageAbout li {
+    .PageAbout label {
         font-size:30px;
     }
   }
@@ -349,28 +349,13 @@ width:20%;
     .CityStores label {
         font-size:30px;
     }
-  }.PageCatalog img{
-    width:80%;
-    
-}
-.PageCatalog .Product{
-    width:100%;
-    padding:50px 0;
-    text-align: center;
-}
-.PageCatalog .Product:hover{
-    box-shadow: 0 0 20px rgba(0,0,0,0.3);
-}
+  }
 .PageCatalog:after{
     clear:both;
     display: block;
     content:"";
 }
-.PageCatalog .Prod {
-    display:grid;
-    width:75%;
-    grid-template-columns: repeat(3, 1fr);
-}
+
 .PageCatalog .Show{
     float:right;
     margin:20px;
@@ -409,55 +394,9 @@ width:20%;
     font-size:20px;
     
 }
-.PageCatalog .Product h3{
-    font-size: 22px;
-    color:rgb(84, 84, 84);
-    color:rgba(0, 0, 0, 0.3);
-    margin-top:25px;
-    margin-bottom:15px;
-}
-.PageCatalog .Product p{
-    font-size: 20px;
-    padding:0 15px;
-    margin-bottom:30px;
-}
-.PageCatalog .Product .Volume{
-    font-size: 16px;
-    padding:0 15px;
-    margin-bottom:30px;
-}
-.PageCatalog .Product .Volume span, .PageCatalog .Product .Volume .Var{
-    color:rgb(84, 84, 84);
-    color:rgba(0, 0, 0, 0.3);
-}
-.PageCatalog .Product .Price{
-    font-size: 20px;
-    padding:0 15px;
-    margin-bottom:30px;
-    font-weight:bold;
-}
-.PageCatalog .Product .hidden{
-    display: none;
-}
-.PageCatalog .Product:hover .hidden{
-    display:block;
-}
-.PageCatalog .Product:hover .hidden:hover{
-    background-color:rgba(156, 60, 118, 1);
-}
-.PageCatalog .Product .hidden{
-    font-family: 'Ubuntu', sans-serif;
-    background-color:rgba(156, 60, 118, 0.7);
-    color:white;
-    border-radius:10px;
-    font-size:18px;
-    padding:10px 20px;
-    margin:10px auto;
-}
+
 @media screen and (orientation:portrait) and  (max-device-width:736pt) {
-    .PageCatalog .Prod {
-        width:100%;
-    }
+
     .PageCatalog select{
         float:none;
         margin:10px;
@@ -477,9 +416,7 @@ width:20%;
 
 }
 @media screen and  (max-width:650pt) {
-    .PageCatalog .Prod {
-        width:100%;
-    }
+  
     .PageCatalog .Pages{
         width:100%;
         text-align: center;
@@ -573,17 +510,87 @@ width:20%;
         padding:30px;
         margin:10px auto;
     }
-}.PageProduct img{
-    width:70px;
-
+}.Catalog img{
+    width:80%;
+    
 }
-.PageProduct .big{
-    display:inline-block;
-    width:400px;
-    margin:10px auto;
+.Catalog .Product{
+    width:100%;
+    padding:50px 0;
+    text-align: center;
+}
+.Catalog .Product:hover{
+    box-shadow: 0 0 20px rgba(0,0,0,0.3);
+}
+.Catalog:after{
+    clear:both;
+    display: block;
+    content:"";
+}
+.Catalog {
+    display:grid;
+    width:75%;
+    grid-template-columns: repeat(3, 1fr);
+}
+
+
+.Catalog .Product h3{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.Catalog .Product p{
+    font-size: 20px;
+    padding:0 15px;
     margin-bottom:30px;
 }
-.PageProduct .Product{
+.Catalog .Product .Volume{
+    font-size: 16px;
+    padding:0 15px;
+    margin-bottom:30px;
+}
+.Catalog  .Product .Volume span, .Catalog  .Product .Volume .Var{
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+}
+.Catalog .Product .Price{
+    font-size: 20px;
+    padding:0 15px;
+    margin-bottom:30px;
+    font-weight:bold;
+}
+.Catalog  .Product .hidden{
+    display: none;
+}
+.Catalog  .Product:hover .hidden{
+    display:block;
+}
+.Catalog  .Product:hover .hidden:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.Catalog  .Product .hidden{
+    font-family: 'Ubuntu', sans-serif;
+    background-color:rgba(156, 60, 118, 0.7);
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 20px;
+    margin:10px auto;
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .Catalog  {
+        width:100%;
+    }
+
+
+}
+@media screen and  (max-width:650pt) {
+    .Catalog {
+        width:100%;
+    }
+}.PageProduct .Product{
     padding:15px;
     text-align: center;
 }
@@ -592,121 +599,13 @@ width:20%;
     display: block;
     content:"";
 }
-.PageProduct h3{
-    font-size:24px;
-    margin:10px auto;
-}
-.PageProduct h2{
-    font-size:30px;
-    margin:10px auto;
-    margin-bottom:40px;
-}
-.PageProduct .Variant{
-    position: relative;
-    width:80%;
-    margin: auto;
-    clear:both;
-    text-align: left;
-    
-}
-.PageProduct .Variant img{
-    padding:20px;
-    float:left;
-    width:70px;
-    height:100%;
-}
-.PageProduct .Variant h5{
-    font-size: 22px;
-    color:rgb(84, 84, 84);
-    color:rgba(0, 0, 0, 0.3);
-    margin-top:25px;
-    margin-bottom:15px;
-}
-.PageProduct .Variant span{
-    font-size: 18px;
-    margin-top:25px;
-    margin-bottom:15px;
-
-}
-.PageProduct .Variant{
-    border-top:1px solid black;
-}
-.PageProduct .Variant:first-child{
-    border-top:1px solid white;
-}
-
-.PageProduct .order{
-    float:right;
-    margin-top:50px;
-    overflow: hidden;
-}
-.PageProduct .order{
-    float:right;
-    margin:30px 0;
-    overflow: hidden;
-}
-.PageProduct .order .Get, .PageProduct .Message {
-    font-family: 'Ubuntu', sans-serif;
-    color:white;
-    border-radius:10px;
-    font-size:18px;
-    padding:10px 30px;
-    float:right;
-}
-
-.PageProduct .order .Get{
-    background-color:rgba(156, 60, 118, 0.7);
-}
-.PageProduct .Message{
-    margin:35px 0;
-    background-color:rgba(213, 195, 221, 0.7);
-    
-}
-.PageProduct .order .Get:hover{
-    background-color:rgba(156, 60, 118, 1);
-}
-.PageProduct .Message:hover{
-    background-color:#81597E;
-}
-
-.PageProduct .order .buttons{
-    padding:0 10px 0 8px;
-    width:108px;
-    float:right;
-    border-bottom:2px solid #9C3C76;
-    margin:0 10px;
-}
-.PageProduct .order .buttons span{
-    font-size:30px;
-}
-
-.PageProduct .order input[type="number"]{
-    border:none;
-    outline:none;
-    width:70px;
-    font-size:18px;
-    margin:10px 5px 8px 5px;
-    text-align: center;
-} 
-
-/* Убирает стрелочки */
-.PageProduct .order input::-webkit-outer-spin-button,
-.PageProduct .order input::-webkit-inner-spin-button {
-    -webkit-appearance: none;
-}
-
-.PageProduct .order input[type='number'] {
-    -moz-appearance: textfield;
-}
-.PageProduct .descr{
-    margin:10px;
-}
 .PageProduct .describe{
     width:80%;
     text-align:left;
     margin:80px auto;
     
 }
+
 .PageProduct .describe .title{
     font-size:24px;
     font-weight: bold;
@@ -805,6 +704,128 @@ width:20%;
     padding:10px 20px;
     margin:10px auto;
 }
+.ProductComponent img{
+    width:70px;
+
+}
+.ProductComponent  .big{
+    display:block;
+    width:400px;
+    margin:10px auto;
+    margin-bottom:30px;
+}
+
+
+.ProductComponent  h3{
+    font-size:24px;
+    margin:10px auto;
+}
+.ProductComponent  h2{
+    font-size:30px;
+    margin:10px auto;
+    margin-bottom:40px;
+}
+.ProductComponent  .Variant{
+    position: relative;
+    width:80%;
+    margin: auto;
+    clear:both;
+    text-align: left;
+    
+}
+.ProductComponent  .Variant img{
+    padding:20px;
+    float:left;
+    width:70px;
+    height:100%;
+}
+.ProductComponent  .Variant h5{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.ProductComponent  .Variant span{
+    font-size: 18px;
+    margin-top:25px;
+    margin-bottom:15px;
+
+}
+.ProductComponent  .Variant{
+    border-top:1px solid black;
+}
+.ProductComponent  .Variant:first-child{
+    border-top:1px solid white;
+}
+
+.ProductComponent  .order{
+    float:right;
+    margin-top:50px;
+    overflow: hidden;
+}
+.ProductComponent .order{
+    float:right;
+    margin:30px 0;
+    overflow: hidden;
+}
+.ProductComponent  .order .Get, .ProductComponent  .Message {
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 30px;
+    float:right;
+}
+
+.ProductComponent  .order .Get{
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.ProductComponent  .Message{
+    margin:35px 0;
+    background-color:rgba(213, 195, 221, 0.7);
+    
+}
+.ProductComponent .order .Get:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.ProductComponent  .Message:hover{
+    background-color:#81597E;
+}
+
+.ProductComponent  .order .buttons{
+    padding:0 10px 0 8px;
+    width:108px;
+    float:right;
+    border-bottom:2px solid #9C3C76;
+    margin:0 10px;
+}
+.ProductComponent  .order .buttons span{
+    font-size:30px;
+}
+
+.ProductComponent  .order input[type="number"]{
+    border:none;
+    outline:none;
+    width:70px;
+    font-size:18px;
+    margin:10px 5px 8px 5px;
+    text-align: center;
+} 
+
+/* Убирает стрелочки */
+.ProductComponent  .order input::-webkit-outer-spin-button,
+.ProductComponent  .order input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.ProductComponent  .order input[type='number'] {
+    -moz-appearance: textfield;
+}
+.ProductComponent  .descr{
+    margin:10px;
+}
+
 .PageRegistration{
     width:80%;
     margin:auto;
@@ -838,6 +859,9 @@ width:20%;
     border-left:2px solid red;
     
 }
+.PageRegistration h2+p{
+    text-align:center;
+}
 .PageRegistration input[type="button"]{
     font-family: 'Ubuntu', sans-serif;
     color:white;
@@ -858,6 +882,30 @@ width:20%;
 }
 .PageRegistration .link span:hover{
     color:rgba(156, 60, 118, 1);
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageRegistration{
+        width:90%;
+    }
+    .PageRegistration h2{
+        font-size:35px;
+    }
+    .PageRegistration h2+p{
+        font-size:35px;
+    }
+    .PageRegistration form{
+        width:100%;
+        box-sizing: border-box;
+    }
+    .PageRegistration input{
+        width:100%;
+        font-size:30px;
+        padding:20px 10px;
+        box-sizing: border-box;
+    }
+    .PageRegistration .link{
+        font-size:30px;
+    }
 }.PageOrder{
     width: 80%;
     margin:20px auto;
@@ -896,14 +944,21 @@ width:20%;
     margin-bottom:15px;
 }
 .PageOrder .Prod{
+    height:110px;
     border-top:1px solid black;
-    margin-top:20px;
-    margin-bottom:50px;
+}
+
+.PageOrder .del{
+    opacity: 0;
+    height:0px;
+    transition-duration: 300ms;
+    transition-property: height;
+}
+.PageOrder .del .Variant{ 
+    display:none;
 }
 .PageOrder h1+.Prod{
     border-top:1px solid white;
-    margin-top:20px;
-    margin-bottom:50px;
 }
 
 
@@ -947,10 +1002,10 @@ width:20%;
     background-color:rgba(213, 195, 221, 0.7);
     
 }
-.PageOrder .order .Delete:hover{
+.PageOrder .comp .Delete:hover{
     background-color:rgba(156, 60, 118, 1);
 }
-.PageOrder .Message:hover{
+.PageOrder .comp .Message:hover{
     background-color:#81597E;
 }
 .PageOrder  .comp .buttons {
@@ -960,7 +1015,7 @@ width:20%;
 .PageOrder  .adapt .buttons {
     margin:auto;
     padding:0 20px;
-    width:250px;
+    width:240px;
 }
 
 .PageOrder .buttons{
@@ -1016,17 +1071,45 @@ width:20%;
     }
     .PageOrder .adapt {
         display:block;
+        
+    }
+    .PageOrder .Prod {
+        height:360px;
+        
     }
     
     .PageOrder .Variant p{
+        margin-top:50px;
         font-size:30px;
+    }
+    .PageOrder .Variant{
+        height:300px;
     }
     
     .PageOrder .Variant img{
         width:300px;
-        margin:30px;
+
     }
-    
+    .PageOrder .del{
+        opacity: 0;
+        height:0px;
+        transition-duration: 300ms;
+        transition-property: height;
+    }
+    .PageOrder .del .Variant{ 
+        display:none;
+    }
+    .PageOrder .adapt input[type="number"]{
+        box-sizing:border-box;
+        width:80%;
+        font-size:30px;
+
+    } 
+    .PageOrder .order .buttons span{
+        font-size:30px;
+        box-sizing:border-box;
+        width:10%;
+    }
 }.PageLog{
     width:80%;
     margin:auto;
@@ -1069,6 +1152,24 @@ width:20%;
 }
 .PageLog input[type="button"]:hover{
     background-color:rgba(156, 60, 118, 1);
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageLog{
+        width:90%;
+    }
+    .PageLog h2{
+        font-size:35px;
+    }
+    .PageLog form{
+        width:100%;
+        box-sizing: border-box;
+    }
+    .PageLog input{
+        width:100%;
+        font-size:30px;
+        padding:20px 10px;
+        box-sizing: border-box;
+    }
 }.PageAccount{
     width:80%;
     margin:auto;
@@ -1162,7 +1263,416 @@ width:20%;
 
 }.PagesRouter{
     clear:both;
-}/* Сброс стилей браузера */
+}body { height: 100%;} 
+html { position:relative; min-height:100%; }
+.MainComponent {
+    font-family: 'Ubuntu', sans-serif;
+    background:white;
+    padding-bottom:300px;
+    
+}
+.MainComponent .Head{
+    text-align: center;
+    margin:0 auto;
+    
+}
+.MainComponent input{
+    outline: none;
+}
+/*Шапка*/
+
+.MainComponent .Namecent{
+	background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") center no-repeat;
+	background-repeat:no-repeat;
+	text-align:center;
+}
+
+.MainComponent .Namecent h2 span{
+	font-size:85px;
+	font-family:"Grand Hotel", cursive;
+	letter-spacing:0.12em;
+	color:#9c3c76;
+	line-height:2;
+}
+.MainComponent .Namecent h2{
+	padding-top:15px;
+}
+
+.MainComponent .Namecent .r{
+	margin-left:200px;
+}
+.MainComponent .sideRight{
+    top:65px;
+    position:absolute;
+    right:10px;
+}
+.MainComponent .Search{
+    clear:both;
+    width:100%;
+    height:70px;
+    background-color:rgba(255, 202, 220, 0.4);
+}
+.MainComponent .Search input{
+   width:80%;
+   height:20px;
+   opacity: 0.5;
+   background-color:white;
+   border:none;
+   margin:15px;
+   padding:10px;
+   font-size:20px;
+   border-radius:15px;
+   outline: none;
+}
+.MainComponent .Search input:hover, .MainComponent .Search input:active {
+    opacity: 1;
+    outline: none;
+ }
+.MainComponent .SearchIcon{
+    width:40px;
+    padding:15px;
+    float:right;
+    right:40px;
+}
+
+.MainComponent .Icons{
+    width:60px;
+    padding:10px;
+}
+.MainComponent .inBusket{
+    Position:absolute;
+    font-size:18px;
+    border-radius:10px;
+    right:5px;
+    text-align: center;
+    display:block;
+    width:22px;
+    border-radius: 11px;
+    background-color: #D5C3DD;
+    height:22px;
+    top:5px;
+}
+
+/*Меню*/
+.MainComponent .Computer nav{
+
+    text-align:center;
+	height:70px;
+	background-color:#9C3C76;
+	position:relative;
+}
+.MainComponent .Computer nav ul li a{
+    color:white;
+    font-weight:bold;
+    text-align: center;
+    display: block;
+    float:left;
+    width:20%;
+    font-size:22px;
+    box-sizing:border-box;
+    padding:10px;
+}
+
+
+.MainComponent .roll{
+    display: inline-block;
+    overflow: hidden;
+    line-height: 36px;
+    height: 36px;
+    position: relative;
+}
+
+.MainComponent .roll span{
+    padding:0;
+    display: block;
+    position: relative;
+    top: 7px;
+    transition: top .5s ease;
+    -webkit-transition: top .5s ease;
+    -moz-transition: top .5s ease;
+}
+
+.MainComponent .Computer .hover{
+    text-shadow: #631B42 0 0 2px;
+    color: #D5C3DD;
+    margin-top:5px;
+}
+.MainComponent .Computer ul.MainComponentMenu li:hover .roll span{
+    top: -35px;
+}
+
+
+.MainComponent .Computer .logo{
+    width:200px;
+    
+}
+
+.MainComponent .logoFooter{
+    box-sizing: border-box;
+    float:left;
+    padding:30px;
+    width:30%;
+}
+.MainComponent .logoFooter img{
+    float:left;
+    
+    width:200px;
+}
+.MainComponent .FooterMenu{
+    float:left;
+    box-sizing: border-box;
+    width:40%;
+    padding:30px 0;
+    text-align: center;
+    font-size:18px;
+    font-weight:bold;
+    color:#631B42;
+}
+.MainComponent footer .ComputerFooter a:hover{
+    color: #D5C3DD;
+}
+
+.MainComponent .ComputerFooter .thirdColomn{
+    float:left;
+    width:30%;
+    box-sizing: border-box;
+    text-transform: uppercase;
+    font-size: 22px;
+    font-weight:bold;
+    color:#631B42;
+    padding:30px 0;
+    
+}
+.MainComponent .ComputerFooter .thirdColomn img{
+    width:40px;
+    margin:20px 10px;
+}
+.MainComponent .ComputerFooter .thirdColomn:after{
+    clear:both;
+    content:"";
+}
+.MainComponent footer {
+    background-color:rgba(255, 202, 220, 0.4);
+    position:absolute;
+    bottom:0px;
+    height:200px;
+    width:100%;
+}
+.MainComponent footer:after{
+    clear:both;
+    display: block;
+    content:"";
+}
+.MainComponent div.load{
+    height:500px;
+}
+.MainComponent footer .AdaptiveFooter{
+    display:none;
+    margin:auto;
+}
+
+
+
+
+.MainComponent .open a{
+    -webkit-transition: top 1s ease-out 0.5s;
+    -moz-transition: top 1s ease-out 0.5s;
+    -o-transition: top 1s ease-out 0.5s;
+    transition: top 1s ease-out 0.5s;
+}
+
+
+.MainComponent .Adaptive{
+    display:none;
+}
+.MainComponent .Adaptive ul a{
+    text-transform: uppercase;
+    background-color:rgba(156, 60, 118, 0.6);
+    
+}
+.MainComponent .Adaptive .open a{
+    font-size:18px;
+    letter-spacing: 0.1em;
+    display:block;
+    padding:20px;
+    border-bottom:1px solid rgba(156, 60, 118, 0.3);
+    color:white;
+}
+.MainComponent .Adaptive .burg{
+    background-color:rgba(156, 60, 118, 1);
+}
+.MainComponent .Adaptive .burg img{
+   padding:10px;
+    width:70px;
+}
+.MainComponent footer .AdaptiveFooter img{
+    width:40px;
+    margin:10px 30px;
+}
+.MainComponent footer .AdaptiveFooter span{
+    float:left;
+    margin:20px 40px;
+    margin-right:120px;
+}
+
+
+/*Загрузка*/
+.Loading{
+    margin:200px auto;
+    width:65px;
+}
+.lds-facebook {
+    display: inline-block;
+    position: relative;
+    width: 64px;
+    height: 64px;
+  }
+  .lds-facebook div {
+    display: inline-block;
+    position: absolute;
+    left: 6px;
+    width: 13px;
+    background: black;
+    animation: lds-facebook 1.2s cubic-bezier(0, 0.5, 0.5, 1) infinite;
+  }
+  .lds-facebook div:nth-child(1) {
+    left: 6px;
+    animation-delay: -0.24s;
+  }
+  .lds-facebook div:nth-child(2) {
+    left: 26px;
+    animation-delay: -0.12s;
+  }
+  .lds-facebook div:nth-child(3) {
+    left: 45px;
+    animation-delay: 0;
+  }
+  @keyframes lds-facebook {
+    0% {
+      top: 6px;
+      height: 51px;
+    }
+    50%, 100% {
+      top: 19px;
+      height: 26px;
+    }
+  }
+  
+
+  
+  @media screen and  (max-width:800pt) {
+    .MainComponent .Namecent{
+        text-align:left;
+        background:url("https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/parfL.jpg?alt=media&token=9bb6879b-98b1-4ed3-bdad-305763783618") left no-repeat;
+    }
+    
+    .MainComponent .Namecent h2 span{
+        font-size:60px;
+        font-family:"Grand Hotel", cursive;
+        letter-spacing:0.06em;
+        color:#9c3c76;
+        line-height:2;
+    }
+    .MainComponent .Namecent h2{
+        padding-top:15px;
+        margin-left:130px;
+    }
+    
+    .MainComponent .Namecent .r{
+        margin-left:0;
+    }
+    .MainComponent .sideRight{
+        top:30px;
+        position:absolute;
+        right:10px;
+    }
+    .MainComponent .sideRight img{
+        width:50px;
+    }
+  }
+  @media screen  and  (max-width:736pt) { /*от IPHONE 7 plus* горизонтально*/
+    
+    .MainComponent .Computer{
+        display:none;
+    }
+    @keyframes appear {
+        0% {
+          display: none;
+        }
+        100% {
+          display:block;
+        }
+      }
+    .MainComponent .Adaptive{
+        display:block;
+        
+    }
+    
+    .MainComponent{
+        padding-bottom: 100px;
+    }
+   
+    .MainComponent .close{
+        display:none;
+    }
+    .MainComponent .open{
+        display:block;
+
+    }
+    
+ 
+    .MainComponent .Adaptive .IconsBurg{
+        float:right;
+        padding:10px;
+        width:70px;
+    }
+ 
+    
+    .MainComponent .ComputerFooter{
+        display:none;
+    }
+    .MainComponent footer .AdaptiveFooter{
+        display:block;
+    }
+    .MainComponent footer{
+        height:60px;
+        
+    }
+    
+  }
+
+
+  @media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .MainComponent .Adaptive .open a{
+        font-size:40px;
+        padding:35px;
+        
+    }
+    .MainComponent .Search{
+        height:100px;
+    }
+    .MainComponent .Search input{
+        box-sizing:border-box;
+        width:100%;
+        margin:20px 0;
+        padding:15px 30px;
+        font-size: 30px;
+        height:60px;
+        background-color:transparent;
+    }
+    .MainComponent .SearchIcon{
+        display:none;
+    }
+    .MainComponent .Adaptive .burg{
+        padding:30px;
+    }
+    .MainComponent .Adaptive .IconsBurg{
+        padding:40px;
+    }
+  }
+
+
+ /* Сброс стилей браузера */
 
 html, body, div, span, object, iframe,h1, h2, h3, h4, h5, h6, p, 
 blockquote, pre, a, abbr, acronym, address, big, cite, code, del, dfn, 
@@ -1618,4 +2128,4 @@ html { position:relative; min-height:100%; }
 
 
  
-/*# sourceMappingURL=main.bundle.17433378e9dbe7de0691.css.map*/
+/*# sourceMappingURL=main.bundle.8faf9bbaac0e919d89ab.css.map*/

@@ -1,0 +1,122 @@
+.ProductComponent img{
+    width:70px;
+
+}
+.ProductComponent  .big{
+    display:block;
+    width:400px;
+    margin:10px auto;
+    margin-bottom:30px;
+}
+
+
+.ProductComponent  h3{
+    font-size:24px;
+    margin:10px auto;
+}
+.ProductComponent  h2{
+    font-size:30px;
+    margin:10px auto;
+    margin-bottom:40px;
+}
+.ProductComponent  .Variant{
+    position: relative;
+    width:80%;
+    margin: auto;
+    clear:both;
+    text-align: left;
+    
+}
+.ProductComponent  .Variant img{
+    padding:20px;
+    float:left;
+    width:70px;
+    height:100%;
+}
+.ProductComponent  .Variant h5{
+    font-size: 22px;
+    color:rgb(84, 84, 84);
+    color:rgba(0, 0, 0, 0.3);
+    margin-top:25px;
+    margin-bottom:15px;
+}
+.ProductComponent  .Variant span{
+    font-size: 18px;
+    margin-top:25px;
+    margin-bottom:15px;
+
+}
+.ProductComponent  .Variant{
+    border-top:1px solid black;
+}
+.ProductComponent  .Variant:first-child{
+    border-top:1px solid white;
+}
+
+.ProductComponent  .order{
+    float:right;
+    margin-top:50px;
+    overflow: hidden;
+}
+.ProductComponent .order{
+    float:right;
+    margin:30px 0;
+    overflow: hidden;
+}
+.ProductComponent  .order .Get, .ProductComponent  .Message {
+    font-family: 'Ubuntu', sans-serif;
+    color:white;
+    border-radius:10px;
+    font-size:18px;
+    padding:10px 30px;
+    float:right;
+}
+
+.ProductComponent  .order .Get{
+    background-color:rgba(156, 60, 118, 0.7);
+}
+.ProductComponent  .Message{
+    margin:35px 0;
+    background-color:rgba(213, 195, 221, 0.7);
+    
+}
+.ProductComponent .order .Get:hover{
+    background-color:rgba(156, 60, 118, 1);
+}
+.ProductComponent  .Message:hover{
+    background-color:#81597E;
+}
+
+.ProductComponent  .order .buttons{
+    padding:0 10px 0 8px;
+    width:108px;
+    float:right;
+    border-bottom:2px solid #9C3C76;
+    margin:0 10px;
+}
+.ProductComponent  .order .buttons span{
+    font-size:30px;
+}
+
+.ProductComponent  .order input[type="number"]{
+    border:none;
+    outline:none;
+    width:70px;
+    font-size:18px;
+    margin:10px 5px 8px 5px;
+    text-align: center;
+} 
+
+/* Убирает стрелочки */
+.ProductComponent  .order input::-webkit-outer-spin-button,
+.ProductComponent  .order input::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+}
+
+.ProductComponent  .order input[type='number'] {
+    -moz-appearance: textfield;
+}
+.ProductComponent  .descr{
+    margin:10px;
+}
+

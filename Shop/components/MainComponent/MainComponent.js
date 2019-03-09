@@ -5,7 +5,6 @@ import PropTypes from 'prop-types';
 import PagesRouter from '../../pages/PagesRouter';
 import { NavLink } from 'react-router-dom';
 import {voteEvents} from '../../events';
-import { products_search } from '../../redux/ProductsAC';
 import './MainComponent.css';
 
 
@@ -30,12 +29,11 @@ class MainComponent extends React.PureComponent {
   search=()=>{
     let result=this.state.searchInput;
     voteEvents.emit('Search',result);
-    console.log(result);
+
   }
   setSearch=(EO)=>{
     this.setState({searchInput:EO.target.value})
-    
-    console.log('dsv');
+   
   }
   open=()=>{
     let x=this.state.open;
@@ -50,14 +48,24 @@ class MainComponent extends React.PureComponent {
     
 
 render() {
-//firebase.auth().signOut();
-console.log('Main_render')
-return <div className="MainComponent"> 
+let presense=0;
+  if (this.props.user.info){
+    let i=0;
+    for (let k in this.props.user.info.order ){
+      for (let key in this.props.user.info.order[k] ){
+        i+=this.props.user.info.order[k][key];
+      }
+    }
+    i>0?presense=i:null;
+  }
+
+return <BrowserRouter>
+  <div className="MainComponent"> 
       <div className="Computer">
         <div className="Head">
           <div className="sideRight">
             <NavLink to={this.props.user.info!==null?"/account":"/registration"} exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fuser-shape.png?alt=media&token=8f6275a5-6fda-46bc-b881-5602ac16e9e5"/></NavLink>
-            <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/></NavLink>
+            <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="Icons" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"/><span className={presense?"inBusket":null}>{presense?presense:null}</span></NavLink>
           </div>
           <NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">
             <div className="Namecent">
@@ -103,13 +111,13 @@ return <div className="MainComponent">
        
        <div className="Adaptive">
        <nav>
-       <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="IconsBurg" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(4).png?alt=media&token=139ed906-d1e3-4dda-978a-a8dd41705941"/></NavLink>
+       <NavLink to="/order" exact className="PageLink" activeClassName="ActivePageLink"><img className="IconsBurg" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(4).png?alt=media&token=139ed906-d1e3-4dda-978a-a8dd41705941"/><span className={presense?"inBusket":null}>{presense?presense:null}</span></NavLink>
          <div className="burg" onClick={this.open}><img src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fmenu.png?alt=media&token=0674a144-2ccb-4128-9b00-fcf31006657c"/></div>
            <ul className={"AdaptMenu " + (this.state.open?"open":"close")}>
               <li><NavLink onClick={this.close} to="/" exact className="PageLink" activeClassName="ActivePageLink">
              Главная
                </NavLink></li>
-               <li><NavLink onClick={this.close} to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">
+               <li><NavLink onClick={this.close} to={"/catalog/"+10+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">
                 Каталог
                </NavLink></li>
                <li><NavLink onClick={this.close} to="/brands" exact className="PageLink" activeClassName="ActivePageLink">
@@ -128,7 +136,7 @@ return <div className="MainComponent">
        </nav>
        </div>
        <div className="Search">
-       <NavLink to={"/catalog/"+5+"/"+1+"/"+"s"} exact className="PageLink" activeClassName="ActivePageLink"><img className="SearchIcon" onClick={this.search} src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fmagnifying-glass.png?alt=media&token=a847c8db-325c-48b9-b4c2-f0b1d348ff0a"/></NavLink> 
+       <NavLink to={"/catalog/"+10+"/"+1+"/"+"s"} exact className="PageLink" activeClassName="ActivePageLink"><img className="SearchIcon" onClick={this.search} src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fmagnifying-glass.png?alt=media&token=a847c8db-325c-48b9-b4c2-f0b1d348ff0a"/></NavLink> 
           <input type="text" onChange={this.setSearch} placeholder="Поиск"></input>
         </div>
        <PagesRouter/>
@@ -140,7 +148,7 @@ return <div className="MainComponent">
       
        <ul className="FooterMenu">
               <li><NavLink to="/" exact className="PageLink" activeClassName="ActivePageLink">Главная</NavLink></li>
-               <li><NavLink to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
+               <li><NavLink to={"/catalog/"+10+"/"+1} exact className="PageLink" activeClassName="ActivePageLink">Каталог</NavLink></li>
                <li><NavLink to="/brands" exact className="PageLink" activeClassName="ActivePageLink">Бренды</NavLink></li>
                <li><NavLink to="/news" exact className="PageLink" activeClassName="ActivePageLink">Новости</NavLink></li>
                <li><NavLink to="/about" exact className="PageLink" activeClassName="ActivePageLink">О нас</NavLink></li>
@@ -159,7 +167,9 @@ return <div className="MainComponent">
             <a href="#"><img alt="tel" src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Ftelegram.png?alt=media&token=dd5a9b05-85ba-435e-a9da-73254e551450"/></a>
         </div>
        </footer>
-       </div>;
+       </div>
+       
+       </BrowserRouter>
        
 
   }

@@ -23,10 +23,10 @@ class Catalog extends React.PureComponent {
         <NavLink key={v.code} to={"/product/"+v.code} exact className="PageLink" activeClassName="ActivePageLink"><img alt={0} key={0}  src={v.img[0]}/>
         <h3>{v.brand}</h3>
         <p>{v.name}</p>
-        <div class="Volume">Объем, мл: {v.stock.sort((a,b)=>a.vol-b.vol).map(v=><span key={v.vol}>{v.vol} </span>)}
-        <div class="Var">{v.stock.length} варианта</div></div>
-        <div class="Price">{Math.min.apply(null,v.stock.map(v=>v.price))} - {Math.max.apply(null,v.stock.map(v=>v.price))} руб.</div>
-        <input type="button" value="Выбрать" class="hidden"/>
+        <div className="Volume">Объем, мл: {v.stock.sort((a,b)=>a.vol-b.vol).map(v=><span key={v.vol}>{v.vol} </span>)}
+        <div className="Var">{v.stock.length} варианта</div></div>
+        <div className="Price">{Math.min.apply(null,v.stock.map(v=>v.price))} - {Math.max.apply(null,v.stock.map(v=>v.price))} руб.</div>
+        <input type="button" value="Выбрать" className="hidden"/>
         </NavLink>
     </div>)
     }

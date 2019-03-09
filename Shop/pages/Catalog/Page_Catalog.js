@@ -20,7 +20,20 @@ class Page_Catalog extends React.PureComponent {
         products:PropTypes.array,
         search:PropTypes.array,
       }),
-    savedFilter:PropTypes.array,
+    savedFilter:PropTypes.shape({
+        brands:PropTypes.array,
+        savedBrands:PropTypes.array,
+        minprice:PropTypes.number,
+        minvolume:PropTypes.number,
+        maxvolume:PropTypes.number,
+        maxprice:PropTypes.number,
+        sminprice:PropTypes.number,
+        sminvolume:PropTypes.number,
+        smaxvolume:PropTypes.number,
+        smaxprice:PropTypes.number,
+        ssex:PropTypes.array,
+        sex:PropTypes.array,
+    }),
   };
   state={
     info:null,
@@ -32,6 +45,7 @@ class Page_Catalog extends React.PureComponent {
     upd:0,
     updP:0,
   }
+
 
   componentDidMount = () => {
     voteEvents.addListener('EFilterSaved',this.setStartPage);  //Сохранение формы
@@ -69,7 +83,6 @@ class Page_Catalog extends React.PureComponent {
   filterProducts=()=>{
     
     let typeP=this.props.match.params.s;
-    console.log(this.props.match.params);
     let result;
     typeP?
     result=this.props.products.search:
@@ -86,22 +99,13 @@ class Page_Catalog extends React.PureComponent {
   sortProducts=(prod)=>{
     return sort(prod,this.state.sort);
   }
-  change=(EO)=>{
-    this.setState({upd:EO.target.textContent});
-  }
-  changeP=(EO)=>{
- 
-    this.setState({updP:EO.target.textContent});
 
-  }
   
 
 
 
 
   render() {
-
-    console.log('Page_Catalog render');
     let code;
     let products;
     products=this.filterProducts();
@@ -121,27 +125,26 @@ class Page_Catalog extends React.PureComponent {
     let pages=[];  
     if (products.length/Number(this.props.match.params.amount)!=1){ 
         for(let i=1;i<=Math.ceil(products.length/Number(this.props.match.params.amount));i++){
-        pages[i]=<NavLink key={i} to={"/catalog/"+this.props.match.params.amount+"/"+i} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.changeP} className={Number(this.props.match.params.page)==i?"active":null}>{i}</span></NavLink>
+        pages[i]=<NavLink key={i} to={"/catalog/"+this.props.match.params.amount+"/"+i} exact className="PageLink" activeClassName="ActivePageLink"><span  className={Number(this.props.match.params.page)==i?"active":null}>{i}</span></NavLink>
         }
     }  
     
     code=products.slice(Number(this.props.match.params.amount)*(Number(this.props.match.params.page)-1),Number(this.props.match.params.amount)*(Number(this.props.match.params.page)-1) + Number(this.props.match.params.amount));
   
-    console.log(code);
     return  <div className='PageCatalog' >
     <Form brands={this.brands()}/>
     <div className="Show">
-    <NavLink key={4} to={"/catalog/"+4+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.change} className={Number(this.props.match.params.amount)==4?"active":null}>4</span></NavLink>
-    <NavLink key={5} to={"/catalog/"+5+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.change} className={Number(this.props.match.params.amount)==5?"active":null}>5</span></NavLink> 
-    <NavLink key={10} to={"/catalog/"+10+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.change} className={Number(this.props.match.params.amount)==10?"active":null}>10</span></NavLink> 
-    <NavLink key="all" to={"/catalog/"+this.props.products.products.length+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.change} className={Number(this.props.match.params.amount)==this.props.products.products.length?"active":null}>all</span></NavLink> 
+    <NavLink key={10} to={"/catalog/"+10+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span  className={Number(this.props.match.params.amount)==10?"active":null}>10</span></NavLink>
+    <NavLink key={15} to={"/catalog/"+15+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span  className={Number(this.props.match.params.amount)==15?"active":null}>15</span></NavLink> 
+    <NavLink key={20} to={"/catalog/"+20+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span  className={Number(this.props.match.params.amount)==20?"active":null}>20</span></NavLink> 
+    <NavLink key="all" to={"/catalog/"+this.props.products.products.length+"/"+1} exact className="PageLink" activeClassName="ActivePageLink"><span  className={Number(this.props.match.params.amount)==this.props.products.products.length?"active":null}>all</span></NavLink> 
     </div>
     {sortVariants}
     <Catalog  products={code}/>
     <div className='Pages'>
-    {Number(this.props.match.params.page)>1?<NavLink key={"prev"} to={"/catalog/"+this.props.match.params.amount+"/"+(Number(this.props.match.params.page)-1)} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.changeP}>Предыдущая</span></NavLink>:null}
+    {Number(this.props.match.params.page)>1?<NavLink key={"prev"} to={"/catalog/"+this.props.match.params.amount+"/"+(Number(this.props.match.params.page)-1)} exact className="PageLink" activeClassName="ActivePageLink"><span >Предыдущая</span></NavLink>:null}
      {pages}
-   {Number(this.props.match.params.page)!=(Math.ceil(products.length/Number(this.props.match.params.amount)))?<NavLink key={"nexr"} to={"/catalog/"+this.props.match.params.amount+"/"+(Number(this.props.match.params.page)+1)} exact className="PageLink" activeClassName="ActivePageLink"><span onClick={this.changeP}>Следующая</span></NavLink>:null}
+   {Number(this.props.match.params.page)!=(Math.ceil(products.length/Number(this.props.match.params.amount)))?<NavLink key={"nexr"} to={"/catalog/"+this.props.match.params.amount+"/"+(Number(this.props.match.params.page)+1)} exact className="PageLink" activeClassName="ActivePageLink"><span >Следующая</span></NavLink>:null}
     </div>
     </div>;
    

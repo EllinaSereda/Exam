@@ -41,3 +41,21 @@
 .PageLog input[type="button"]:hover{
     background-color:rgba(156, 60, 118, 1);
 }
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageLog{
+        width:90%;
+    }
+    .PageLog h2{
+        font-size:35px;
+    }
+    .PageLog form{
+        width:100%;
+        box-sizing: border-box;
+    }
+    .PageLog input{
+        width:100%;
+        font-size:30px;
+        padding:20px 10px;
+        box-sizing: border-box;
+    }
+}

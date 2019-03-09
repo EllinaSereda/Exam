@@ -1,6 +1,4 @@
 import React from 'react';
-
-import { BrowserRouter } from 'react-router-dom';
 import PropTypes from 'prop-types';
 import {connect} from 'react-redux';
 import { news_create } from '../redux/NewsAC';
@@ -63,7 +61,6 @@ class Main extends React.PureComponent {
     .then ((doc)=>{
       if (doc){
         let log=doc.data()[user.email];
-        console.log(log);
         this.props.dispatch(user_create(log)); 
       }
     })
@@ -86,7 +83,6 @@ class Main extends React.PureComponent {
       })
     }
     search=(EO)=>{
-      console.log(EO);
       this.props.dispatch(products_search(EO)); 
       
     }
@@ -97,13 +93,10 @@ componentWillUnmount = () => {
     
 
 render() {
-console.log('Main_render')
 let code=null;
 this.state.ready?
-code=<BrowserRouter>
-      <MainComponent user={this.props.user} />
-        </BrowserRouter>
-      : code=<div className="Loading"><div className="lds-facebook"><div></div><div></div><div></div></div></div>;
+code=<MainComponent user={this.props.user} />
+: code=<div className="Loading"><div className="lds-facebook"><div></div><div></div><div></div></div></div>;
 return code;
        
 

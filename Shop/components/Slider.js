@@ -25,12 +25,6 @@ class Slider extends React.PureComponent {
     newNumb=this.state.number+1:newNumb=0;
     this.setState({number:newNumb});
   }
-  dec=()=>{
-    let newNumb;
-    (this.state.number==0)?
-    newNumb=this.state.info.length-1:newNumb=this.state.number-1;
-    this.setState({number:newNumb});
-  }
   componentDidMount(){
     this.timer=setInterval(this.inc,3000)
   }
@@ -41,9 +35,7 @@ class Slider extends React.PureComponent {
   render() {
    //console.log('Slider did Render');
     return <div className="Slider">
-    <input type="button" value="<" onClick={this.dec}/>
     <div className="img"><img src={this.state.info[this.state.number].url}/></div>
-    <input type="button" value=">" onClick={this.inc}/>
     </div>
  ;
 

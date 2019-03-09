@@ -31,6 +31,9 @@
     border-left:2px solid red;
     
 }
+.PageRegistration h2+p{
+    text-align:center;
+}
 .PageRegistration input[type="button"]{
     font-family: 'Ubuntu', sans-serif;
     color:white;
@@ -51,4 +54,28 @@
 }
 .PageRegistration .link span:hover{
     color:rgba(156, 60, 118, 1);
+}
+@media screen and (orientation:portrait) and  (max-device-width:736pt) {
+    .PageRegistration{
+        width:90%;
+    }
+    .PageRegistration h2{
+        font-size:35px;
+    }
+    .PageRegistration h2+p{
+        font-size:35px;
+    }
+    .PageRegistration form{
+        width:100%;
+        box-sizing: border-box;
+    }
+    .PageRegistration input{
+        width:100%;
+        font-size:30px;
+        padding:20px 10px;
+        box-sizing: border-box;
+    }
+    .PageRegistration .link{
+        font-size:30px;
+    }
 }

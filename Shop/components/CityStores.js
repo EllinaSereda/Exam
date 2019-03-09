@@ -27,7 +27,6 @@ class CityStores extends React.PureComponent {
   }
 
   show=(EO)=>{
-    console.log(EO.target.value)
     this.setState({checked:EO.target.value})
   }
 

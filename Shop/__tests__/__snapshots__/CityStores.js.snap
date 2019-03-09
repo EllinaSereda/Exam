@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа CityStores 1`] = `
+<div
+  className="CityStores"
+>
+  <div
+    class="left"
+  >
+    <div>
+      <input
+        checked={true}
+        hidden={true}
+        id={100}
+        name="filial"
+        onChange={[Function]}
+        type="radio"
+        value={100}
+      />
+      <label
+        htmlFor={100}
+      >
+        адрес1
+      </label>
+    </div>
+    <div>
+      <input
+        checked={false}
+        hidden={true}
+        id={102}
+        name="filial"
+        onChange={[Function]}
+        type="radio"
+        value={102}
+      />
+      <label
+        htmlFor={102}
+      >
+        адрес2
+      </label>
+    </div>
+  </div>
+  <div
+    className="StoreInfo"
+  >
+    <img
+      src={
+        Array [
+          "#1",
+          "#2",
+        ]
+      }
+    />
+    <div>
+      <span>
+        Режим работы:
+      </span>
+       
+      <p>
+        m
+      </p>
+      <p>
+        t
+      </p>
+    </div>
+    <div>
+      <span>
+        Телефон:
+      </span>
+       
+      <p>
+        1
+      </p>
+      <p>
+        2
+      </p>
+    </div>
+  </div>
+</div>
+`;

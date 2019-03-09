@@ -1,0 +1,43 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`работа News 1`] = `
+<div>
+  <div
+    className="News"
+  >
+    <div
+      className="Name"
+    >
+      <span>
+        новость1
+      </span>
+    </div>
+    <a
+      aria-current={null}
+      className="PageLink"
+      href="/news/0"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <img
+        src="#"
+      />
+    </a>
+    <p>
+      новость...
+    </p>
+    <a
+      aria-current={null}
+      className="PageLink"
+      href="/news/0"
+      onClick={[Function]}
+      style={undefined}
+    >
+      <input
+        type="button"
+        value="Читать"
+      />
+    </a>
+  </div>
+</div>
+`;

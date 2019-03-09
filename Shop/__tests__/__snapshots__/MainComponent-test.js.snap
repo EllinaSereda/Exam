@@ -36,6 +36,9 @@ exports[`работа Main 1`] = `
             className="Icons"
             src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"
           />
+          <span
+            className={null}
+          />
         </a>
       </div>
       <a
@@ -208,6 +211,9 @@ exports[`работа Main 1`] = `
           className="IconsBurg"
           src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(4).png?alt=media&token=139ed906-d1e3-4dda-978a-a8dd41705941"
         />
+        <span
+          className={null}
+        />
       </a>
       <div
         className="burg"
@@ -235,7 +241,7 @@ exports[`работа Main 1`] = `
           <a
             aria-current={null}
             className="PageLink"
-            href="/catalog/5/1"
+            href="/catalog/10/1"
             onClick={[Function]}
             style={undefined}
           >
@@ -295,7 +301,7 @@ exports[`работа Main 1`] = `
     <a
       aria-current={null}
       className="PageLink"
-      href="/catalog/5/1/s"
+      href="/catalog/10/1/s"
       onClick={[Function]}
       style={undefined}
     >
@@ -352,7 +358,7 @@ exports[`работа Main 1`] = `
           <a
             aria-current={null}
             className="PageLink"
-            href="/catalog/5/1"
+            href="/catalog/10/1"
             onClick={[Function]}
             style={undefined}
           >
@@ -496,6 +502,9 @@ exports[`работа Main 2`] = `
             className="Icons"
             src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(3).png?alt=media&token=a7812a2b-bfc0-40fd-ac35-319abbf0d3ab"
           />
+          <span
+            className={null}
+          />
         </a>
       </div>
       <a
@@ -668,6 +677,9 @@ exports[`работа Main 2`] = `
           className="IconsBurg"
           src="https://firebasestorage.googleapis.com/v0/b/finalproject-d5d17.appspot.com/o/fonts%2Fshopping-cart-black-shape%20(4).png?alt=media&token=139ed906-d1e3-4dda-978a-a8dd41705941"
         />
+        <span
+          className={null}
+        />
       </a>
       <div
         className="burg"
@@ -695,7 +707,7 @@ exports[`работа Main 2`] = `
           <a
             aria-current={null}
             className="PageLink"
-            href="/catalog/5/1"
+            href="/catalog/10/1"
             onClick={[Function]}
             style={undefined}
           >
@@ -755,7 +767,7 @@ exports[`работа Main 2`] = `
     <a
       aria-current={null}
       className="PageLink"
-      href="/catalog/5/1/s"
+      href="/catalog/10/1/s"
       onClick={[Function]}
       style={undefined}
     >
@@ -812,7 +824,7 @@ exports[`работа Main 2`] = `
           <a
             aria-current={null}
             className="PageLink"
-            href="/catalog/5/1"
+            href="/catalog/10/1"
             onClick={[Function]}
             style={undefined}
           >

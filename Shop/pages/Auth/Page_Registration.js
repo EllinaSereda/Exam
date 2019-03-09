@@ -18,6 +18,7 @@ class Page_Registration extends React.PureComponent {
       name:null,
       info:null,
       log:0,
+      error:false,
   }
   setName=(EO)=>{
     this.setState({name:EO.target.value});
@@ -30,7 +31,8 @@ class Page_Registration extends React.PureComponent {
   }
   createAccount=()=>{
       const auth=firebase.auth();
-      console.log(this.state.email,this.state.password)
+      console.log(this.state.error);
+      if (this.state.email&&this.state.password){
       const promise=auth.createUserWithEmailAndPassword(this.state.email,this.state.password);
       promise
       .then(firebaseUser=>{
@@ -54,6 +56,7 @@ class Page_Registration extends React.PureComponent {
           .then(()=>{
             this.props.dispatch(user_create(user));
             this.props.history.push('/account');
+            this.setState({error:false});
           })
           .catch(()=>{
             console.log('Error')
@@ -62,14 +65,18 @@ class Page_Registration extends React.PureComponent {
           
         }
       })
-      .catch(e=>console.log(e.message));
+      .catch(this.setState({error:true}));
+    }
+    else this.setState({error:true});
   }
     
 
   render() {
     console.log('Page_Registration render')
+    console.log(this.state.error);
     return <div className="PageRegistration">
       <h2>Регистрация</h2>
+      {this.state.error?<p>Проверьте введенные данные</p>:null}
       <form method="#" action="#">
         <input  className="name" type="text" onBlur={this.setName} name="name" id="name" placeholder="Введите Имя" required/>
         <br/>

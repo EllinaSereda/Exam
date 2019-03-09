@@ -10,7 +10,7 @@ exports[`работа Main 1`] = `
     <a
       aria-current={null}
       className="PageLink"
-      href="/catalog/product/0"
+      href="/product/0"
       onClick={[Function]}
       style={undefined}
     >
@@ -25,7 +25,7 @@ exports[`работа Main 1`] = `
         Good
       </p>
       <div
-        class="Volume"
+        className="Volume"
       >
         Объем, мл: 
         <span>
@@ -33,14 +33,14 @@ exports[`работа Main 1`] = `
            
         </span>
         <div
-          class="Var"
+          className="Var"
         >
           1
            варианта
         </div>
       </div>
       <div
-        class="Price"
+        className="Price"
       >
         122
          - 
@@ -48,7 +48,7 @@ exports[`работа Main 1`] = `
          руб.
       </div>
       <input
-        class="hidden"
+        className="hidden"
         type="button"
         value="Выбрать"
       />

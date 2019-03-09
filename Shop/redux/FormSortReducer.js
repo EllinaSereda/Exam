@@ -27,11 +27,7 @@ function formSortReducer(state=initState,action) {
   switch (action.type) {
 
     case RESET_CREATE: {
-      // надо создать новый счётчик
-      console.log('action:','SAVE');
-      // редьюсер ВСЕГДА должен возвращаеть новый state а не изменять старый!
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newState={...state,
         brands:[],
         savedBrands:[],
@@ -46,22 +42,20 @@ function formSortReducer(state=initState,action) {
         ssex:[],
         sex:[],
       };
-      console.log('state после обработки редьюсером:',newState);
+
       return newState;
     }
     
     case MINPRICE_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newState={...state,
        minprice:action.info,
       };
-      console.log('state после обработки редьюсером:',newState);
+
       return newState;
     }
     case MAXPRICE_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newState
       if (state.minprice<=action.info){
         newState={...state,
@@ -72,22 +66,20 @@ function formSortReducer(state=initState,action) {
         maxprice:state.minprice,
        };
       
-      console.log('state после обработки редьюсером:',newState);
+ 
       return newState;
     }
 
     case MINVOL_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newState={...state,
        minvolume:action.info,
       };
-      console.log('state после обработки редьюсером:',newState);
+
       return newState;
     }
     case SEX_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newS = [...state.sex];
       newS.some(v=>v==action.info)?
       newS=newS.filter(v=>v!=action.info)
@@ -95,12 +87,11 @@ function formSortReducer(state=initState,action) {
       let newState={...state,
         sex:newS,
       };
-      console.log('state после обработки редьюсером:',newState);
+   
       return newState;
     }
     case MAXVOL_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newState
       if (state.minvolume<=action.info){
         newState={...state,
@@ -111,13 +102,12 @@ function formSortReducer(state=initState,action) {
         maxvolume:state.minvolume,
        };
       
-      console.log('state после обработки редьюсером:',newState);
+  
       return newState;
     }
 
     case BRAND_SORT_CHANGE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
+
       let newBr = [...state.brands];
       newBr.some(v=>v==action.info)?
       newBr=newBr.filter(v=>v!=action.info)
@@ -125,14 +115,11 @@ function formSortReducer(state=initState,action) {
       let newState={...state,
         brands:newBr,
       };
-      console.log('state после обработки редьюсером:',newState);
       return newState;
     }
 
 
     case FORM_CHANGESAVE: {
-      console.log('action:',action);
-      console.log('state до обработки редьюсером:',state);
       
       let newState={...state,
         savedBrands:action.info,
@@ -142,7 +129,6 @@ function formSortReducer(state=initState,action) {
         smaxvolume:state.maxvolume,
         ssex:state.sex,
       };
-      console.log('state после обработки редьюсером:',newState);
       return newState;
     }
 
