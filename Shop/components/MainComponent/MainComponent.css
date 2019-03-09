@@ -404,6 +404,10 @@ html { position:relative; min-height:100%; }
     .MainComponent .Adaptive .IconsBurg{
         padding:40px;
     }
+    .MainComponent .inBusket{
+        top:30px;
+        right:30px;
+    }
   }
 
 
